@@ -25,11 +25,12 @@ body {
     padding-left: 40px;
     float: right;
     text-transform: uppercase;
-    transition: 1s;
+    
 }
 
 .navigation a:hover {
     color: aqua;
+    transition: 1s;
 }
 
 .introduction,
