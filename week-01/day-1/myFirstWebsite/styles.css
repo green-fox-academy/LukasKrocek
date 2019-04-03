@@ -1,0 +1,73 @@
+body {
+    background-image: url(assets/background.png);
+    text-align: left;
+    font-family: 'Inconsolata', monospace;
+
+}
+
+.navigation {
+    background-color: #333333;
+    height: 40px;
+    padding: 0px 10%;
+
+}
+
+.navigation a,
+.logo {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.navigation a {
+    color: #ff0099;
+    vertical-align: middle;
+    padding-left: 40px;
+    float: right;
+    text-transform: uppercase;
+    transition: 1s;
+}
+
+.navigation a:hover {
+    color: aqua;
+}
+
+.introduction,
+.text {
+    padding: 0% 10%;
+    margin: 50px 0px;
+}
+
+.separator,
+h2 {
+
+    font-size: 50px;
+    padding: 0% 10%;
+    text-align: center;
+
+}
+
+.separator {
+    font-size: 30px;
+}
+
+
+h1 {
+    font-size: 60px;
+
+}
+
+h3 {
+    font-size: 30px;
+    color: #ff0099;
+}
+
+.text h3 {
+    color: black;
+    margin-top: 100px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 30px;
+}
