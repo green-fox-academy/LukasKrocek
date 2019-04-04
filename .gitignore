@@ -14,8 +14,16 @@
 *.zip 
 *.tar.gz 
 *.rar  
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml hs_err_pid*  
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml 
+hs_err_pid*  
 # End of https://www.gitignore.io/api/javds
- .mvn/ *.xml mvn* .gradle out  
- hs_err_pid*  .DS_Store/ .DS_Store
- y
+mvn*
+*.xml 
+.mvn/ 
+*.gradle out  
+* hs_err_pid*  
+.DS_Store/ 
+.DS_Store
+.gradle
+out
+
