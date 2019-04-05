@@ -26,4 +26,5 @@ mvn*
 .DS_Store
 .gradle
 out
+*.iml
 
