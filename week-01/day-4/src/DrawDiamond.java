@@ -39,12 +39,10 @@ public class DrawDiamond {
                 System.out.print(symbol);
             }
 
-
             increment++;
             System.out.println();
         }
         // End of upper part
-
 
         // Start of lower part
 
@@ -57,7 +55,6 @@ public class DrawDiamond {
             for (int j = 0; j < i + 1; j++) {
                 System.out.print(space);
             }
-
 
             //symbols
             for (int j = size / 2; j > i - decrement + 1; j--) {
