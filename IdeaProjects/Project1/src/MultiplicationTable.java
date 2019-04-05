@@ -7,9 +7,9 @@ public class MultiplicationTable {
         System.out.println("Enter number you want to multiply");
         int input = scanner.nextInt();
         for (int i = 0; i < 21; i++) {
-            int result = i*input;
-            System.out.println(i+ " * "+input+ " = "+result);
-            
+            int result = i * input;
+            System.out.println(i + " * " + input + " = " + result);
+
         }
     }
 }

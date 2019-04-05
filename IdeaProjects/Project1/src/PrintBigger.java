@@ -9,13 +9,11 @@ public class PrintBigger {
         System.out.println("Give me one more");
         int b = sc.nextInt();
 
-        if (a>b){
-            System.out.println(a +" is bigger");
-        }
-            else if (a<b){
-            System.out.println(b +" is bigger");
-        }
-                else {
+        if (a > b) {
+            System.out.println(a + " is bigger");
+        } else if (a < b) {
+            System.out.println(b + " is bigger");
+        } else {
             System.out.println("number are the same");
         }
     }

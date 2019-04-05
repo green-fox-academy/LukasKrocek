@@ -21,8 +21,7 @@ public class AnimalsAndLegs {
             System.out.println("You are right, you little genius!");
         } else {
             System.out.println("nope, its: " + legs);
-            {
-            }
+
         }
     }
 }
