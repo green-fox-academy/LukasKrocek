@@ -22,32 +22,35 @@ public class DrawDiamond {
 
 
         String symbol = "k";
+        int increment =0;
 
-        //upper part of diamond
-        for (int i = 0; i <size-1 ; i++) {
+        //upper part of diamond works
 
+        //lines
+        for (int i = 0; i < size/2+1; i++) {
             //spaces
-            for (int j = size;  j> i+2; j--) {
-
-                    System.out.print(" ");
-
+            for (int j = size/2; j > i; j--) {
+                System.out.print(" ");
             }
-             //symbol
-            for (int j = 0; j < i; j++) {
-                System.out.print(symbol);
 
+            //symbols
+            for (int j = 0; j < i+increment+1; j++) {
+                System.out.print("*");
             }
-            //right side of symbols
-            for (int j = 0; j < i-1; j++) {
-                System.out.print(symbol);
-            }
+
+
+            increment++;
             System.out.println();
         }
         // End of upper part
 
+
         // Start of lower part
 
-        for (int i = 0; i < size-3; i++) {
+        int decrement = size/2;
+
+        // Lines
+        for (int i = 0; i < size/2; i++) {
 
             //spaces
             for (int j = 0; j < i+1; j++) {
@@ -55,18 +58,11 @@ public class DrawDiamond {
             }
 
             //symbols
-            for (int j = size-1;  j> i+3; j--) {
-
+            for (int j = size/2; j > i-decrement+1; j--) {
                 System.out.print(symbol);
             }
 
-
-            //right side
-            for (int j = size;  j> i+3; j--) {
-
-                System.out.print(symbol);
-            }
-
+             decrement--;
             System.out.println();
     }
 

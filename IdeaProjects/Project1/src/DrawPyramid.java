@@ -5,7 +5,7 @@ public class DrawPyramid {
         Scanner sc = new Scanner(System.in);
         System.out.println("Give me number");
         int size = sc.nextInt();
-
+        int increment =0;
         //PYRAMID LOOP
         for (int i = 0; i < size; i++) {
             //spaces
@@ -15,19 +15,13 @@ public class DrawPyramid {
             }
 
             //symbols
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < i + increment + 1; j++) {
                 System.out.print("*");
-
             }
+                //lines
+                increment++;
+                System.out.println();
 
-            // symbols on right
-            for (int j = 0; j < i-1; j++) {
-                System.out.print("*");
-
-            }
-
-            //lines
-            System.out.println();
         }
     }
 }
