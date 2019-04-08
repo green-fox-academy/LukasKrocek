@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Palindrom {
@@ -11,27 +12,28 @@ public class Palindrom {
     }
 
 
+    public static String PalindromMaker(String a) {
+        String word = a;
+        char[] reverse = word.toCharArray();
 
-
-    public static char [] PalindromMaker(String a) {
-        char[] word = a.toCharArray();
-        char [] reverse = word;
 
         //making reverse
         for (int i = 0; i < reverse.length / 2; i++) {
-            char temp = word[i];
-            reverse[i] = word[word.length - i - 1];
-            reverse[word.length - i - 1] = temp;
+            char temp = reverse[i];
+            reverse[i] = reverse[reverse.length - i - 1];
+            reverse[reverse.length - i - 1] = temp;
+        }
 
-            
+        //making palindrom
+        String palindrom = "";
+        if (word.equals(reverse)){
+            palindrom = word;
+        } else {
+            palindrom = word + reverse;
         }
 
 
-
-
-
-
-        return reverse;
+        return palindrom;
 
     }
 }

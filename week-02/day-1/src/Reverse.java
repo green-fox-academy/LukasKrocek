@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Reverse {
 
 // - Create an array variable named `aj`
@@ -15,12 +17,10 @@ public class Reverse {
 
         }
 
+        System.out.print(Arrays.toString(aj));
 
-        for (int i = 0; i < aj.length; i++) {
-            System.out.println(aj[i]);
-
-        }
     }
-
-
 }
+
+
+

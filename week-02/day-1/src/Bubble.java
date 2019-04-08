@@ -21,10 +21,7 @@ public class Bubble {
     public static String bubble(int[] a) {
 
         Arrays.sort(a);
-        String sortedStringArray = "";
-        for (int i = 0; i < a.length; i++) {
-            sortedStringArray += a[i] + " , ";
-        }
+        String sortedStringArray = Arrays.toString(a);
 
         return sortedStringArray;
     }
@@ -32,20 +29,18 @@ public class Bubble {
     public static String advancedBubble(int[] a, boolean b) {
         String sortedStringArray = "";
         Arrays.sort(a);
-        for (int i = 0; i < a.length; i++) {
-            sortedStringArray += a[i] + " , ";
-        }
+        sortedStringArray = Arrays.toString(a);
         if (b == true) {
-            sortedStringArray = "";
+
             for (int i = 0; i < a.length / 2; i++) {
                 int temp = a[i];
                 a[i] = a[a.length - i - 1];
                 a[a.length - i - 1] = temp;
 
             }
-            for (int i = 0; i < a.length; i++) {
-                sortedStringArray += a[i] + " , ";
-            }
+
+                sortedStringArray = Arrays.toString(a);
+
         }
         return sortedStringArray;
 
