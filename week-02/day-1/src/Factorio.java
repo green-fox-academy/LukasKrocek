@@ -11,10 +11,11 @@ public class Factorio {
         System.out.println(factorio(4));
 
     }
-    public static int factorio (int a){
+
+    public static int factorio(int a) {
         int factorial = 1;
         for (int i = 0; i < a; i++) {
-            factorial *= i+1;
+            factorial *= i + 1;
         }
         return factorial;
     }

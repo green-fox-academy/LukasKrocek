@@ -9,7 +9,7 @@ public class AppendA {
 
         String[] animals = {"koal", "pand", "zebr"};
         for (int i = 0; i < animals.length; i++) {
-            animals [i] += "a";
+            animals[i] += "a";
 
         }
 

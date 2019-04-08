@@ -8,11 +8,11 @@ public class Greet {
 // - Greet `al`
 
     public static void main(String[] args) {
-    String a1 = "Greenfox";
-    Greet(a1);
+        String a1 = "Greenfox";
+        Greet(a1);
     }
 
-    public static void Greet (String a){
+    public static void Greet(String a) {
         System.out.println("Greeting dear, " + a);
 
     }

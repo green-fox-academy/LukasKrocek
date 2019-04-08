@@ -8,8 +8,8 @@ public class Doubling {
         System.out.println(doubling(baseNum));
     }
 
-    public static int doubling (int a){
-        int b = a*2;
+    public static int doubling(int a) {
+        int b = a * 2;
         return b;
     }
 
