@@ -27,4 +27,4 @@ mvn*
 .gradle
 out
 *.iml
-
+.idea
