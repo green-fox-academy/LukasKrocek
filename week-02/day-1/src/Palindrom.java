@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.Scanner;
 
+
 public class Palindrom {
 
     public static void main(String[] args) {
@@ -26,10 +27,10 @@ public class Palindrom {
 
         //making palindrom
         String palindrom = "";
-        if (word.equals(reverse)){
+        if (word.equals(new String(reverse))){
             palindrom = word;
         } else {
-            palindrom = word + reverse;
+            palindrom = word + new String(reverse);
         }
 
 
