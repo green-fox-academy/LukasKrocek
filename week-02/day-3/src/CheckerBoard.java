@@ -1,32 +1,25 @@
-import org.w3c.dom.css.RGBColor;
-
 import javax.swing.*;
 
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class RainbowBoxFunction {
+public class CheckerBoard {
     public static void mainDraw(Graphics graphics) {
-        // Create a square drawing function that takes 3 parameters:
-        // The square size, the fill color, graphics
-        // and draws a square of that size and color to the center of the canvas.
-        // Create a loop that fills the canvas with rainbow colored squares.
-        int red = 0;
-        int green = 255;
-        int blue = 0;
-        for (int i = 0; i < 320; i++) {
+        // Fill the canvas with a checkerboard pattern.
+        int size = WIDTH / 8;
 
 
-            CenteredBox(320 - i , new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)), graphics);
+        for (int rows = 0; rows < 8; rows++) {
+
+            for (int columns = 0; columns < 8; columns++) {
+                if (rows%2==0 && columns%2 ==0 || rows%2!=0 && columns%2 !=0)
+                graphics.fillRect(size*columns, size*rows, size, size);
+
+
+            }
 
         }
-    }
-
-    public static void CenteredBox(int size, Color color, Graphics graphics) {
-
-        graphics.setColor(color);
-        graphics.fillRect(WIDTH / 2 - size / 2, HEIGHT / 2 - size / 2, size, size);
     }
 
 

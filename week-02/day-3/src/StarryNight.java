@@ -1,34 +1,28 @@
-import org.w3c.dom.css.RGBColor;
-
 import javax.swing.*;
 
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class RainbowBoxFunction {
+public class StarryNight {
     public static void mainDraw(Graphics graphics) {
-        // Create a square drawing function that takes 3 parameters:
-        // The square size, the fill color, graphics
-        // and draws a square of that size and color to the center of the canvas.
-        // Create a loop that fills the canvas with rainbow colored squares.
-        int red = 0;
-        int green = 255;
-        int blue = 0;
-        for (int i = 0; i < 320; i++) {
-
-
-            CenteredBox(320 - i , new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)), graphics);
-
+        // Draw the night sky:
+        //  - The background should be black
+        //  - The stars can be small squares
+        //  - The stars should have random positions on the canvas
+        //  - The stars should have random color (some shade of grey)
+        graphics.fillRect(0,0,WIDTH,HEIGHT);
+        for (int i = 0; i < 500; i++) {
+            drawSquare((int)(Math.random()*WIDTH),(int)(Math.random()*HEIGHT),(int)(Math.random()*3),graphics);
         }
+
+
     }
 
-    public static void CenteredBox(int size, Color color, Graphics graphics) {
-
-        graphics.setColor(color);
-        graphics.fillRect(WIDTH / 2 - size / 2, HEIGHT / 2 - size / 2, size, size);
+    public static void drawSquare (int x, int y, int size, Graphics graphics){
+        graphics.setColor(Color.WHITE);
+        graphics.drawRect(x,y,size,size);
     }
-
 
     // Don't touch the code below
     static int WIDTH = 320;
