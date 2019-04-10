@@ -25,10 +25,11 @@ What is the cheapest product?
         products.put("Apples", 150);
         products.put("Bread", 50);
         products.put("Chicken", 550);
-//How much is the fish?
+        //How much is the fish?
         System.out.println(products.get("Fish"));
-//What is the most expensive product?
-        
+        //What is the most expensive product?
+
+
     }
 
 }
