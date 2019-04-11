@@ -27,9 +27,48 @@ What is the cheapest product?
         products.put("Chicken", 550);
         //How much is the fish?
         System.out.println(products.get("Fish"));
-        //What is the most expensive product?
+        System.out.println("-----------------------");
+
+        int max = 0;
+        String maxKeyName = "";
+        int min = 1000;
+        String minKeyName = "";
+        int sum = 0;
+        int numberOfProducts = 0;
 
 
+        for (Map.Entry<String, Integer> product : products.entrySet()
+        ) {
+
+
+            //What is the average price?
+            sum += product.getValue();
+
+            //most expensive product
+            if (product.getValue() > max) {
+                max = product.getValue();
+                maxKeyName = product.getKey();
+            }
+
+            //number of products more expensive than 300
+            if (product.getValue() > 300) {
+                numberOfProducts++;
+            }
+
+            //Is there anything we can buy for exactly 125?
+            if (product.getValue() == 125) {
+                System.out.println("For exactly 125 we can buy : " + product.getKey());
+            }
+            //What is the cheapest product?
+            if (product.getValue() < min) {
+                min = product.getValue();
+                minKeyName = product.getKey();
+            }
+
+        }
+        System.out.println("Most expensive product is : " + maxKeyName);
+        System.out.println("Average price is : " + sum / products.size());
+        System.out.println(numberOfProducts + " Products are more expensive than 300");
+        System.out.println("Cheapest product is : " + minKeyName);
     }
-
 }
