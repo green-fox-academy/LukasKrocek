@@ -9,6 +9,6 @@ public class TakesLonger {
 
         String alteredQuote = quotePieces[0] + "It always takes longer than you" + quotePieces[1];
 
-                System.out.println(alteredQuote);
+        System.out.println(alteredQuote);
     }
 }

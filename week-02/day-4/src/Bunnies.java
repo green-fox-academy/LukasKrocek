@@ -5,14 +5,14 @@ public class Bunnies {
     // We want to compute the total number of ears across all the bunnies recursively (without loops or multiplication).
 
     public static void main(String[] args) {
-        System.out.println(Counter(100));
+        System.out.println(counter(100));
     }
 
-    public static int Counter (int numberOfBunnies){
-        if (numberOfBunnies<=0){
+    public static int counter(int numberOfBunnies) {
+        if (numberOfBunnies <= 0) {
             return 0;
         }
-        int result =2+Counter(numberOfBunnies-1);
+        int result = 2 + counter(numberOfBunnies - 1);
 
         return result;
 

@@ -8,15 +8,11 @@ public class Palindrom {
         System.out.println("Please enter you word");
         Scanner sc = new Scanner(System.in);
         System.out.println(PalindromMaker(sc.nextLine()));
-
-
     }
-
 
     public static String PalindromMaker(String a) {
         String word = a;
         char[] reverse = word.toCharArray();
-
 
         //making reverse
         for (int i = 0; i < reverse.length / 2; i++) {
@@ -33,8 +29,6 @@ public class Palindrom {
             palindrom = word + new String(reverse);
         }
 
-
         return palindrom;
-
     }
 }

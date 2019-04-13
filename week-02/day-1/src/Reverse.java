@@ -14,7 +14,6 @@ public class Reverse {
             int temp = aj[i];
             aj[i] = aj[aj.length - i - 1];
             aj[aj.length - i - 1] = temp;
-
         }
 
         System.out.print(Arrays.toString(aj));

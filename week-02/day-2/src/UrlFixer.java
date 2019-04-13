@@ -7,9 +7,9 @@ public class UrlFixer {
         // Try to solve it more than once using different String functions!
         url = url.replace("bots", "odds");
 
-if (url.contains("https/")) {
-    url = url.replace("https", "https:");
-}
+        if (url.contains("https/")) {
+            url = url.replace("https", "https:");
+        }
         System.out.println(url);
 
     }
