@@ -26,7 +26,6 @@ public class Hexagon {
         int count = 6;
 
         drawHexagon(count, leftX04, rightX13, x2, x5, topY01, sidesY25, bottomY34, width, height, graphics);
-
     }
 
     public static void drawHexagon(int count,
@@ -69,7 +68,6 @@ public class Hexagon {
                 topY01 + height / 4, sidesY25, bottomY34 - height / 4,
                 // size
                 width / 2, height / 2, graphics);
-
     }
 
     // Don't touch the code below
