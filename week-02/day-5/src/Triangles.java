@@ -21,7 +21,7 @@ public class Triangles {
         int width = WIDTH / 2;
         int height = HEIGHT / 2;
 
-        int count = 6;
+        int count = 7;
 
         drawTriangle(count, topX, rightBottomX, leftBottomX, topY, bottomY12, width, height, graphics);
 
@@ -71,8 +71,8 @@ public class Triangles {
     }
 
     // Don't touch the code below
-    static int WIDTH = 320;
-    static int HEIGHT = 320;
+    static int WIDTH = 960;
+    static int HEIGHT = 960;
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");

@@ -99,7 +99,7 @@ public class Hexagon2 {
 
     // Don't touch the code below
     static int WIDTH = 640;
-    static int HEIGHT = 640;
+    static int HEIGHT = (int) (WIDTH * 0.8657);
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");

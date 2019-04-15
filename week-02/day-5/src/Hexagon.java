@@ -9,37 +9,38 @@ public class Hexagon {
     public static void mainDraw(Graphics graphics) {
 
         //x axis
-        int leftX04 = WIDTH / 4;
-        int rightX13 = 3 * WIDTH / 4;
-        int x2 = WIDTH;
-        int x5 = 0;
+        double leftX04 = WIDTH / 4;
+        double rightX13 = 3 * WIDTH / 4;
+        double x2 = WIDTH;
+        double x5 = 0;
 
         //y axis
-        int topY01 = 0;
-        int sidesY25 = HEIGHT / 2;
-        int bottomY34 = HEIGHT;
+        double topY01 = 0;
+        double sidesY25 = HEIGHT / 2;
+        double bottomY34 = HEIGHT;
 
         //size
-        int width = WIDTH;
-        int height = HEIGHT;
+        double width = WIDTH;
+        double height = HEIGHT;
 
-        int count = 6;
+        int count = 7;
 
         drawHexagon(count, leftX04, rightX13, x2, x5, topY01, sidesY25, bottomY34, width, height, graphics);
     }
 
     public static void drawHexagon(int count,
                                    //X axis
-                                   int leftX04, int rightX13, int x2, int x5,
+                                   double leftX04, double rightX13, double x2, double x5,
                                    //Y axis
-                                   int topY01, int sidesY25, int bottomY34,
+                                   double topY01, double sidesY25, double bottomY34,
                                    //size
-                                   int width, int height, Graphics graphics) {
+                                   double width, double height, Graphics graphics) {
         if (count <= 0) {
             return;
         }
-        int[] x = {leftX04, rightX13, x2, rightX13, leftX04, x5};
-        int[] y = {topY01, topY01, sidesY25, bottomY34, bottomY34, sidesY25};
+        int[] x = {(int)leftX04, (int)rightX13, (int)x2, (int)rightX13, (int)leftX04, (int)x5};
+        int[] y = {(int)topY01, (int)topY01, (int)sidesY25, (int)bottomY34, (int)bottomY34, (int)sidesY25};
+
         graphics.drawPolygon(x, y, 6);
 
         //TOP HEXAGON
@@ -72,7 +73,7 @@ public class Hexagon {
 
     // Don't touch the code below
     static int WIDTH = 640;
-    static int HEIGHT = 640;
+    static int HEIGHT = (int) (WIDTH * 0.8657);
 
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");

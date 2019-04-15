@@ -12,7 +12,7 @@ public class SquareGrid {
         int y = WIDTH/4;
         int size = WIDTH/2;
         int penWidth = 30;
-        int count = 6;
+        int count = 7;
 
         drawSquare(count, x, y, size,penWidth, graphics);
 

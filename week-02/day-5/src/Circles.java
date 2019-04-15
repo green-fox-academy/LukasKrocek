@@ -15,7 +15,7 @@ public class Circles {
         int width = WIDTH;
         int height = HEIGHT;
 
-        int count = 6;
+        int count = 9;
 
         drawCircle(count, x, y, width, height, graphics);
 
