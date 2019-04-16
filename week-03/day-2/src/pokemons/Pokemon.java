@@ -3,33 +3,15 @@ package pokemons;
 public class Pokemon {
     String name;
     String type;
+    String effectiveAgainst;
 
-    Pokemon(String name, String type) {
+    public Pokemon(String name, String type, String effectiveAgainst) {
         this.name = name;
         this.type = type;
+        this.effectiveAgainst = effectiveAgainst;
     }
 
-    public String isEffectiveAgainst() {
-        String effectiveAgainst = "";
-        switch (this.type) {
-            case "fire":
-                effectiveAgainst = "water";
-                break;
-            case "water":
-                effectiveAgainst = "fire";
-                break;
-            case "wind":
-                effectiveAgainst = "water";
-                break;
-            case "stone":
-                effectiveAgainst = "fire";
-                break;
-            case "wild":
-                effectiveAgainst = "wind";
-                break;
-            default:
-                effectiveAgainst = "unbeatable";
-        }
-        return effectiveAgainst;
+    boolean isEffectiveAgainst(Pokemon anotherPokemon) {
+        return this.effectiveAgainst.equals(anotherPokemon.type);
     }
 }
