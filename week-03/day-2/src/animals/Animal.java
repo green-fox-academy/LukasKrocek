@@ -12,6 +12,11 @@ public class Animal {
      */
     int hunger = 50;
     int thirst = 50;
+    String name;
+
+    Animal(String name) {
+        this.name = name;
+    }
 
     public void eat() {
         hunger--;
@@ -24,5 +29,12 @@ public class Animal {
     public void play() {
         hunger++;
         thirst++;
+    }
+
+    @Override
+    public String toString() {
+        String animal = name + " --- hunger : " + hunger + ", thirst : " + thirst;
+
+        return animal;
     }
 }
