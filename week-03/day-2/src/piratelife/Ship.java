@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ship {
-    List<Pirate> crew = new ArrayList<>();
-    Pirate captain;
-    String name;
+    private List<Pirate> crew = new ArrayList<>();
+    private Pirate captain;
+    private String name;
 
     Ship(String name) {
         this.name = name;
     }
 
-    public int getRandom(int maxRandom) {
+    private int getRandom(int maxRandom) {
         maxRandom = (int) ((Math.random()) * maxRandom);
         return maxRandom;
     }
@@ -26,7 +26,7 @@ public class Ship {
         }
     }
 
-    public int countLivingPirates() {
+    private int countLivingPirates() {
         int numberOfLivingPirates = 0;
         for (Pirate pirate : crew) {
             if (pirate.alive) {
@@ -34,6 +34,14 @@ public class Ship {
             }
         }
         return numberOfLivingPirates;
+    }
+
+    private String isCaptainAlive (Ship ship){
+        if (ship.captain.alive){
+            return "alive";
+        } else {
+            return "dead";
+        }
     }
 
 
@@ -60,10 +68,13 @@ public class Ship {
     private void removeRandomNumberOfPirates(Ship ship) {
 
         if (getRandom(6) < 2) {
-            captain.die();
+            ship.captain.die();
         }
-        for (int i = 0; i < (countLivingPirates() - getRandom(countLivingPirates())); i++) {
-            ship.crew.remove(i);
+        int livingCrewSize = ship.countLivingPirates();
+        int killRandomNumber = getRandom(livingCrewSize * livingCrewSize / (livingCrewSize + 1)) + 1;
+        for (int i = 0; i < (livingCrewSize - killRandomNumber); i++) {
+            ship.crew.remove(0);
+
         }
     }
 
@@ -81,7 +92,7 @@ public class Ship {
 
     @Override
     public String toString() {
-        String shipCrew = "Captain of " + name + " is " + captain.name + ". He consumed " + captain.intoxication + " rums. Alive? " + captain.alive + "\n";
+        String shipCrew = "Captain of " + name + " is " + captain.name + ". He consumed " + captain.intoxication + " rums. Captain is " + isCaptainAlive(this) + "\n";
         shipCrew += "There are " + countLivingPirates() + " living crew members on this ship";
         return shipCrew;
     }
