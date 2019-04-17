@@ -3,8 +3,8 @@ package piratelife;
 public class Pirate {
     String name;
     int age;
-    private int levelOfIntoxication = 0;
-    private boolean alive = true;
+    int intoxication = 0;
+    boolean alive = true;
 
     public Pirate(String name, int age) {
         this.name = name;
@@ -15,14 +15,14 @@ public class Pirate {
         if (alive == false) {
             System.out.println("This pirate is dead");
         } else {
-            levelOfIntoxication++;
+            intoxication++;
         }
     }
 
     public void howsItGoingMate() {
         if (alive == false) {
             System.out.println("This pirate is dead");
-        } else if (levelOfIntoxication <= 4) {
+        } else if (intoxication <= 4) {
             System.out.println("Pour me anudder!");
         } else {
             System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
@@ -31,7 +31,7 @@ public class Pirate {
     }
 
     public void sleep() {
-        levelOfIntoxication = 0;
+        intoxication = 0;
     }
 
     public void die() {
@@ -63,4 +63,10 @@ public class Pirate {
         }
     }
 
+    @Override
+    public String toString() {
+        String pirate = "Name: " + name + " Intoxication: " + intoxication + ", alive: " + alive;
+
+        return pirate;
+    }
 }
