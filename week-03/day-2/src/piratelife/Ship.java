@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Ship {
     private List<Pirate> crew = new ArrayList<>();
-    private Pirate captain;
-    private String name;
+    public Pirate captain;
+    public String name;
 
     Ship(String name) {
         this.name = name;
@@ -26,7 +26,7 @@ public class Ship {
         }
     }
 
-    private int countLivingPirates() {
+    public int countLivingPirates() {
         int numberOfLivingPirates = 0;
         for (Pirate pirate : crew) {
             if (pirate.alive) {
@@ -80,11 +80,11 @@ public class Ship {
 
     // each pirate from ship will drink random number of rums (max 20)
     private void partyHard(Ship ship) {
-        for (int i = 0; i < getRandom(20); i++) {
+        for (int i = 0; i < getRandom(100); i++) {
             ship.captain.drinkSomeRum();
         }
         for (Pirate pirate : ship.crew) {
-            for (int i = 0; i < getRandom(20); i++) {
+            for (int i = 0; i < getRandom(100); i++) {
                 pirate.drinkSomeRum();
             }
         }
