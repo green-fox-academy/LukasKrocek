@@ -20,6 +20,7 @@ public class Ship {
     public void fillShip(int howManyPiratesCanFit) {
         captain = new Pirate("Barbosa", 40);
         int numberOfPirates = getRandom(howManyPiratesCanFit);
+
         for (int i = 0; i < numberOfPirates; i++) {
             Pirate jack = new Pirate("Jack" + i, 20 + i);
             this.crew.add(jack);
@@ -46,11 +47,11 @@ public class Ship {
 
 
     //the ship should win if its calculated score is higher
-    //calculate score: Number of Alive pirates in the crew - Number of consumed rum by the captain
+    //calculate score: Number of Alive pirates in the crew - Number of consumed rum by the captain, if same - challenger wins
     public boolean battle(Ship otherShip) {
         boolean won;
         // if this ship won, set won to true, kill pirates from other ship, this ship partyHard
-        if (countLivingPirates() - captain.intoxication > otherShip.countLivingPirates() - otherShip.captain.intoxication) {
+        if (this.countLivingPirates() - this.captain.intoxication >= otherShip.countLivingPirates() - otherShip.captain.intoxication) {
             won = true;
             removeRandomNumberOfPirates(otherShip);
             partyHard(this);
@@ -66,8 +67,7 @@ public class Ship {
 
     //kill random number of ship crew, **used for ship.battle**
     private void removeRandomNumberOfPirates(Ship ship) {
-
-        if (getRandom(6) < 2) {
+        if (getRandom(6) < 6) {
             ship.captain.die();
         }
         int livingCrewSize = ship.countLivingPirates();
@@ -78,13 +78,14 @@ public class Ship {
         }
     }
 
-    // each pirate from ship will drink random number of rums (max 20)
+    // each pirate from ship will drink random number of rums
     private void partyHard(Ship ship) {
-        for (int i = 0; i < getRandom(100); i++) {
+        int numberOfRums = getRandom(100);
+        for (int i = 0; i < numberOfRums; i++) {
             ship.captain.drinkSomeRum();
         }
         for (Pirate pirate : ship.crew) {
-            for (int i = 0; i < getRandom(100); i++) {
+            for (int i = 0; i < getRandom(numberOfRums); i++) {
                 pirate.drinkSomeRum();
             }
         }

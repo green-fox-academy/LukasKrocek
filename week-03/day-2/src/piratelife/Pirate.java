@@ -13,7 +13,7 @@ public class Pirate {
 
     public void drinkSomeRum() {
         if (alive == false) {
-            System.out.println("This pirate is dead");
+            System.out.println(name + " is dead, cannot drink");
         } else {
             intoxication++;
         }
