@@ -8,14 +8,14 @@ public class Garden {
 
     public void watering(int amountOfwater) {
         System.out.println("Watering with " + amountOfwater);
-        int waterPerPlant = amountOfwater / countThirsty();//dividing water between thirsty plants
-        for (Integer position : getThirstyPositions()) { //watering thirsty plants
-            treesAndFlowers.get(position).watering(waterPerPlant);
+        int waterPerPlant = amountOfwater / getNumberOfThirsty();//dividing water between thirsty plants
+        for (Integer index : getThirstyIndexes()) { //watering thirsty plants
+            treesAndFlowers.get(index).watering(waterPerPlant);
         }
         printNeeds();
     }
 
-    private void printNeeds() {
+    public void printNeeds() {
         for (Plant plant : treesAndFlowers) {
             if (plant.setNeedsWater()) {
                 System.out.println(plant.color + " " + plant.getClass().getSimpleName() + " needs water");
@@ -25,7 +25,7 @@ public class Garden {
         }
     }
 
-    private List<Integer> getThirstyPositions() {
+    private List<Integer> getThirstyIndexes() {
         List<Integer> thirstyPositions = new ArrayList<>();
         for (Plant plant : treesAndFlowers) {
             if (plant.setNeedsWater()) {
@@ -35,7 +35,7 @@ public class Garden {
         return thirstyPositions;
     }
 
-    private int countThirsty() {
+    private int getNumberOfThirsty() {
         int thirstyPlants = 0;
         for (Plant plant : treesAndFlowers) {
             if (plant.setNeedsWater()) {
