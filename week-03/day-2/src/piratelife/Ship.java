@@ -67,7 +67,8 @@ public class Ship {
 
     //kill random number of ship crew, **used for ship.battle**
     private void removeRandomNumberOfPirates(Ship ship) {
-        if (getRandom(6) < 6) {
+        // 50% that captain will die
+        if (getRandom(2) < 1) {
             ship.captain.die();
         }
         int livingCrewSize = ship.countLivingPirates();
@@ -85,7 +86,7 @@ public class Ship {
             ship.captain.drinkSomeRum();
         }
         for (Pirate pirate : ship.crew) {
-            for (int i = 0; i < getRandom(numberOfRums); i++) {
+            for (int i = 0; i < getRandom(30); i++) {
                 pirate.drinkSomeRum();
             }
         }

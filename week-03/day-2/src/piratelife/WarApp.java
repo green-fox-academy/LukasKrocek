@@ -4,8 +4,8 @@ public class WarApp {
     public static void main(String[] args) {
         Armada uSA = new Armada("USA");
         Armada china = new Armada("China");
-        uSA.addShips(3);
-        china.addShips(3);
+        uSA.addShips(10);
+        china.addShips(10);
         System.out.println("USA armada");
         System.out.println(uSA);
         System.out.println();

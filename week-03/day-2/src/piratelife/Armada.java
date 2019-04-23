@@ -31,12 +31,13 @@ public class Armada {
             while (this.shipsList.get(thisShipNumber).countLivingPirates() - this.shipsList.get(thisShipNumber).captain.intoxication >=
                     (anotherArmada.shipsList.get(anotherShipNumber)).countLivingPirates() - anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication) {
                 //anotherArmada ship always lose in while loop
-                // printing war details
+                // printing round details
                 System.out.println("Round number: " + roundNumber);
                 roundNumber++;
                 System.out.println(this.name + " wins, ship number: " + (thisShipNumber + 1) + " , number of living pirates: " + this.shipsList.get(thisShipNumber).countLivingPirates() + " , captain intox: " + this.shipsList.get(thisShipNumber).captain.intoxication);
-                System.out.println(anotherArmada.name + " lost, ship number: " + (anotherShipNumber + 1)+ " , number of living pirates: " + anotherArmada.shipsList.get(anotherShipNumber).countLivingPirates() + " , captain intox: " + anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication);
+                System.out.println(anotherArmada.name + " lost, ship number: " + (anotherShipNumber + 1) + " , number of living pirates: " + anotherArmada.shipsList.get(anotherShipNumber).countLivingPirates() + " , captain intox: " + anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication);
                 System.out.println();
+                //initiating battle
                 this.shipsList.get(thisShipNumber).battle(anotherArmada.shipsList.get(anotherShipNumber));
 
                 //returns true if there are no more ships in another's Armada
@@ -46,14 +47,14 @@ public class Armada {
                     return true;
                 }
             }
-            //initiate battle outside while-loop
             //thisArmada ship always lose here
-            // printing round details
+            //printing round details
             System.out.println("Round number: " + roundNumber);
             roundNumber++;
-            System.out.println("China wins, ship number: " + (anotherShipNumber + 1)+ " , number of living pirates: " + anotherArmada.shipsList.get(anotherShipNumber).countLivingPirates() + " , captain intox: " + anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication);
+            System.out.println("China wins, ship number: " + (anotherShipNumber + 1) + " , number of living pirates: " + anotherArmada.shipsList.get(anotherShipNumber).countLivingPirates() + " , captain intox: " + anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication);
             System.out.println("USA lost, ship number: " + (thisShipNumber + 1) + " , number of living pirates: " + this.shipsList.get(thisShipNumber).countLivingPirates() + " , captain intox: " + this.shipsList.get(thisShipNumber).captain.intoxication);
             System.out.println();
+            //initiating battle
             this.shipsList.get(thisShipNumber).battle(anotherArmada.shipsList.get(anotherShipNumber));
 
         }

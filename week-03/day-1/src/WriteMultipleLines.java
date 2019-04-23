@@ -3,7 +3,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
 public class WriteMultipleLines {
     // Create a function that takes 3 parameters: a path, a word and a number
