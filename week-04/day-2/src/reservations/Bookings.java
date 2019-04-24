@@ -1,17 +1,16 @@
 package reservations;
 
-import interfaces.Reservationy;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bookings {
-    List <Reservation> reservations;
+    List<Reservation> reservations;
 
-    Bookings (){
+    Bookings() {
         reservations = new ArrayList<>();
     }
-    public void addReservation (Reservation reservation){
+
+    public void addReservation(Reservation reservation) {
         reservations.add(reservation);
     }
 }
