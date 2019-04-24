@@ -3,7 +3,7 @@ package charsequence;
 public class Shifter implements CharSequence {
 String text;
 int numberOfChars;
-    Shifter (String text, int numberOfChars){
+    public Shifter (String text, int numberOfChars){
         this.text = text;
         this.numberOfChars = numberOfChars;
     }

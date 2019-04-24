@@ -1,7 +1,6 @@
 package zoo;
-import flyable.*;
-
-public class Bird extends Animal implements Flyable{
+import interfaces.Flyable;
+public class Bird extends Animal implements Flyable {
 
     public Bird(String name) {
         super(name);
@@ -14,7 +13,7 @@ public class Bird extends Animal implements Flyable{
 
     @Override
     public void land() {
-
+        System.out.println("ku ku");
     }
 
     @Override

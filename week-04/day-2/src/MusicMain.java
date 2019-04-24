@@ -1,8 +1,6 @@
-package musicapp;
-
 import music.*;
 
-public class AppMusic {
+public class MusicMain {
     public static void main(String[] args) {
 
         System.out.println("Test 1, create Electric Guitar, Bass Guitar and Violin with default strings.");

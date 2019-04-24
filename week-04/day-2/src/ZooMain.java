@@ -1,6 +1,6 @@
 import zoo.*;
 
-public class Zoo {
+public class ZooMain {
 
     public static void main(String[] args) {
 

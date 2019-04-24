@@ -1,6 +1,8 @@
-package flyable;
+package vehicles;
 
-public class Helicopter extends Vehicle implements Flyable{
+import interfaces.Flyable;
+
+public class Helicopter extends Vehicle implements Flyable {
 
     @Override
     public void land() {

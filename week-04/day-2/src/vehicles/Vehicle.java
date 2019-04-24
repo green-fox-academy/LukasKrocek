@@ -1,4 +1,4 @@
-package flyable;
+package vehicles;
 
 public abstract class Vehicle {
     int weight;

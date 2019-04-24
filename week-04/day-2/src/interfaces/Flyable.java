@@ -1,4 +1,4 @@
-package flyable;
+package interfaces;
 
 public interface Flyable {
 

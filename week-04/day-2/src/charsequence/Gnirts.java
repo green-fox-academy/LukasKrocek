@@ -3,7 +3,7 @@ package charsequence;
 public class Gnirts implements CharSequence {
     String text;
 
-    Gnirts(String text) {
+    public Gnirts(String text) {
         this.text = text;
     }
 
