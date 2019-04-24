@@ -71,7 +71,7 @@ public class Carrier {
     }
 
     public String getStatus() {
-        String status = "";
+        String status;
         if (healthPoints <= 0) {
             status = "It's dead Jim :(";
         } else {

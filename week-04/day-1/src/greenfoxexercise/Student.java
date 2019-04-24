@@ -1,6 +1,6 @@
 package greenfoxexercise;
 
-public class Student extends Person {
+public class Student extends Person implements Cloneable {
 
     String previousOrganization;
     int skippedDays;
@@ -15,6 +15,11 @@ public class Student extends Person {
         super(name, age, gender);
         this.previousOrganization = previousOrganization;
         skippedDays = 0;
+    }
+
+@Override
+public Student clone (){
+    return new Student (this.name,this.age,this.gender,this.previousOrganization);
     }
 
     @Override

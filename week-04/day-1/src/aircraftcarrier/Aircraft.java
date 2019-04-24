@@ -15,7 +15,7 @@ abstract class Aircraft {
     }
 
     public int refill(int numberOfAmmo) {
-        int remainingAmmo = 0;
+        int remainingAmmo;
         int ammoNeeded = maxAmmo - ammoStorage;
         if (ammoNeeded < numberOfAmmo) {
             remainingAmmo = numberOfAmmo - ammoNeeded; //decreasing numberOfAmmo by ammoNeeded
@@ -32,7 +32,7 @@ abstract class Aircraft {
     }
 
     public String getStatus() {
-        return "Type " + getClass().getSimpleName() + ", Ammo: " + ammoStorage + ", Base Damage: " + baseDamage +
+        return "Type " + getType() + ", Ammo: " + ammoStorage + ", Base Damage: " + baseDamage +
                 ", All Damage: " + (ammoStorage * baseDamage);
     }
 

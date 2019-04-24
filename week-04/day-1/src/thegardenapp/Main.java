@@ -14,11 +14,6 @@ public class Main {
         garden.add(orangeTree);
         garden.printStatus();
         garden.watering(40);
-        garden.printStatus();
         garden.watering(70);
-        garden.printStatus();
-
-
     }
-
 }

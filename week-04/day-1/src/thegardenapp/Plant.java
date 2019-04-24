@@ -4,7 +4,7 @@ abstract class Plant {
 
     protected double waterNeed;
     protected double currentWater;
-    private boolean needsWater;
+
     public String color;
 
     Plant(String color) {
@@ -13,15 +13,9 @@ abstract class Plant {
     }
 
     public boolean setNeedsWater() {
-        if (currentWater < waterNeed) {
-            needsWater = true;
-        } else {
-            needsWater = false;
-        }
-        return needsWater;
-    }
+        return(currentWater < waterNeed);
+}
 
-    public void watering(int amountOfWater) {
-        currentWater += (amountOfWater);
-    }
+    public abstract void watering(int amountOfWater);
+
 }

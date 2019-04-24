@@ -15,6 +15,7 @@ public class Garden {
         for (Integer index : getThirstyIndexes()) { //watering thirsty plants
             treesAndFlowers.get(index).watering(divideWaterPerPlant(amountOfwater));
         }
+        printStatus();
     }
 
     private int divideWaterPerPlant(int amountOfwater) {

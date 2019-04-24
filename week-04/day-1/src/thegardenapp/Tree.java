@@ -11,6 +11,4 @@ public class Tree extends Plant {
     public void watering (int amountOfWater){
         currentWater+=amountOfWater*0.4;
     }
-
-
 }
