@@ -1,3 +1,5 @@
+package charsequence;
+
 public class Gnirts implements CharSequence {
     String text;
 

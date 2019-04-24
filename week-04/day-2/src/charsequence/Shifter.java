@@ -1,3 +1,5 @@
+package charsequence;
+
 public class Shifter implements CharSequence {
 String text;
 int numberOfChars;

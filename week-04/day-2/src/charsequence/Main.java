@@ -1,3 +1,7 @@
+package charsequence;
+
+import charsequence.Gnirts;
+
 public class Main {
     public static void main(String[] args) {
         Gnirts text = new Gnirts("this example");
