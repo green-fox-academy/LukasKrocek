@@ -1,6 +1,7 @@
 package music;
 
 public class Violin extends StringedInstrument {
+
     public Violin() {
         numberOfStrings = 4;
     }
@@ -10,7 +11,8 @@ public class Violin extends StringedInstrument {
     }
 
     @Override
-    public void sound() {
-        System.out.println("Screech");
+    public String sound() {
+        String sound = "Screech";
+        return sound;
     }
 }
