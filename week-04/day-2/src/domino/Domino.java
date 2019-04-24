@@ -10,7 +10,7 @@ public class Domino implements Printable {
 
     @Override
     public void printAllFields() {
-        System.out.println(this);
+        System.out.print(this);
     }
 
     public Domino(int left, int right) {
