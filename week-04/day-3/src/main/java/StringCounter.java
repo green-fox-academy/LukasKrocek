@@ -12,6 +12,7 @@ public class StringCounter {
         while (text.contains("  ")) { //getting rid off additional whitespaces
             text = text.replaceAll("  ", " ");
         }
+
         if (text.equals("")) { //only whitespace, returns null
             return null;
         }

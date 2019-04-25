@@ -50,4 +50,13 @@ public class StringCounterTest {
         assertEquals(checkMap, counter.countWords(text));
     }
 
+    @Test
+    public void countWords_InOneCharacterString_returnsCountOfWord() {
+        StringCounter counter = new StringCounter();
+        String text = "H";
+        HashMap<String, Integer> checkMap = new HashMap<>();
+        checkMap.put("H", 1);
+        assertEquals(checkMap, counter.countWords(text));
+    }
+
 }
