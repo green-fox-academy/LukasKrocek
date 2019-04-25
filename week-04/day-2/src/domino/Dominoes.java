@@ -45,6 +45,7 @@ public class Dominoes {
         dominoes.add(new Domino(6, 7));
         dominoes.add(new Domino(2, 4));
         dominoes.add(new Domino(7, 1));
+
         Collections.sort(dominoes);
         return dominoes;
     }

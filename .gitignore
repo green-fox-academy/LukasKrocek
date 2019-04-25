@@ -28,3 +28,7 @@ mvn*
 out
 *.iml
 .idea
+build/
+gradlew*
+gradle/
+*.gradle
