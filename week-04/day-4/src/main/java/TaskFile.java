@@ -5,21 +5,31 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class TaskFile {
-    public static Path path = Paths.get("Tasks.txt");
-    public static List<String> taskStatuses;
+    private static Path path = Paths.get("Tasks.txt");
+    private static List<String> taskStatuses;
+    private static int index;
 
-
-    public static void removeLine(int index) {
+    public static void removeTask(int taskNumber) {
         fileToStatusesList();
+        index = taskNumber - 1;
         taskStatuses.remove(index);
-        StatusesListToFile();
+        statusesListToFile();
         System.out.println("Task removed");
     }
 
-    public static void add(Task task) {
+    public static void changeStatus(int taskNumber) {
+        fileToStatusesList();
+        index = taskNumber-1;
+        String changeTask = taskStatuses.get(index).replace("[ ]","[x]");
+        taskStatuses.set(index,changeTask);
+        statusesListToFile();
+        System.out.println("Task marked as done");
+    }
+
+    public static void addTask(Task task) {
         fileToStatusesList();
         taskStatuses.add(task.getStatus());
-        StatusesListToFile();
+        statusesListToFile();
         System.out.println("Task added");
     }
 
@@ -42,7 +52,7 @@ public class TaskFile {
         }
     }
 
-    private static void StatusesListToFile() {
+    private static void statusesListToFile() {
         try {
             Files.write(path, taskStatuses);
         } catch (IOException e) {

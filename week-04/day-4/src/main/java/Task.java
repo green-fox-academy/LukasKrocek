@@ -1,7 +1,3 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.List;
-
 public class Task {
     private String taskToDo;
     private boolean done;
@@ -21,10 +17,4 @@ public class Task {
         }
         return "[ ]";
     }
-
-    public void makeTaskDone() {
-        done = true;
-    }
-
-
 }

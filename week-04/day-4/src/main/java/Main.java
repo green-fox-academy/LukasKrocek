@@ -15,15 +15,17 @@ public class Main {
                     break;
                 case "a":
                     System.out.println("Enter the task");
-                    TaskFile.add(new Task(sc.nextLine())); //adds task
+                    TaskFile.addTask(new Task(sc.nextLine())); //adds task
                     break;
                 case "r":
                     System.out.println("Enter number of task you want to remove");
-                    TaskFile.removeLine(sc.nextInt()-1); //removes task
+                    TaskFile.removeTask(sc.nextInt()); //removes task
+                    sc.nextLine();
                     break;
                 case "c":
                     System.out.println("Enter number of finished task");
-                    //Changes [ ] to [x] in TaskFile
+                    TaskFile.changeStatus(sc.nextInt()); //Changes task status
+                    sc.nextLine();
                     break;
                 case "q":
                     System.out.println("See you next time!");
