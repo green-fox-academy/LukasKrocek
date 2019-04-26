@@ -11,7 +11,7 @@ public class Main {
             String option = sc.nextLine();
             switch (option) {
                 case "l":
-                    TaskFile.print(); //Lists all the tasks
+                    TaskFile.print(); //lists all the tasks
                     break;
                 case "a":
                     System.out.println("Enter the task");
@@ -37,8 +37,6 @@ public class Main {
         }
     }
 
-
-
     public static void printOutOptions() {
         System.out.println("Command Line Todo application");
         System.out.println("=============================");
@@ -49,6 +47,5 @@ public class Main {
         System.out.println("-r   Removes a task");
         System.out.println("-c   Completes a task");
         System.out.println("-q   Quits program");
-
     }
 }

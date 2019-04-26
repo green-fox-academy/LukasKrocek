@@ -8,10 +8,10 @@ public class Task {
     }
 
     public String getStatus() {
-        return doneOfNot() + " " + taskToDo;
+        return doneOrNot() + " " + taskToDo;
     }
 
-    private String doneOfNot() {
+    private String doneOrNot() {
         if (done) {
             return "[x]";
         }
