@@ -23,7 +23,7 @@ public class Main {
                     sc.nextLine();
                     break;
                 case "c":
-                    System.out.println("Enter number of finished task");
+                    System.out.println("Enter number of task you completed");
                     TaskFile.changeStatus(sc.nextInt()); //Changes task status
                     sc.nextLine();
                     break;

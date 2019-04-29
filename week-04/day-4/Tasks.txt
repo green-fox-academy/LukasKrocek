@@ -1,7 +1,3 @@
-[x] First task
-[x] aijoeifowie
-[ ] Third task
-[x] qwidqoiwdnoeifnweio
-[ ] eoifnworinerioneroigneor
-[x] weinoerinoveoiwjmoifewjfoiw
-[ ] woienowrigneorgnerog
+[x] Vyhrat bowling
+[ ] Jit do kina
+[x] Nakrmit kocoura

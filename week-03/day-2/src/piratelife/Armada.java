@@ -23,23 +23,29 @@ public class Armada {
         }
     }
 
+    private void printRoundDetails(Armada winningArmada, Armada loosingArmada, int winningShipNumber, int loosingShipNumber) {
+        int roundNumber = 1;
+        System.out.println("Round number: " + roundNumber);
+        roundNumber++;
+        System.out.println(winningArmada.name + " wins, ship number: " + (winningShipNumber + 1) + " , number of living pirates: " + winningArmada.shipsList.get(winningShipNumber).countLivingPirates() + " , captain intox: " + winningArmada.shipsList.get(winningShipNumber).captain.intoxication);
+        System.out.println(loosingArmada.name + " lost, ship number: " + (loosingShipNumber + 1) + " , number of living pirates: " + loosingArmada.shipsList.get(loosingShipNumber).countLivingPirates() + " , captain intox: " + loosingArmada.shipsList.get(loosingShipNumber).captain.intoxication);
+        System.out.println();
+
+    }
+
+    private boolean thisArmadaWins(Armada anotherArmada, int thisShipNumber, int anotherShipNumber) {
+        return (this.shipsList.get(thisShipNumber).countLivingPirates() - this.shipsList.get(thisShipNumber).captain.intoxication >=
+                (anotherArmada.shipsList.get(anotherShipNumber)).countLivingPirates() - anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication);
+    }
+
     public boolean war(Armada anotherArmada) {
         int anotherShipNumber = 0;
-        int roundNumber = 1;
         for (int thisShipNumber = 0; thisShipNumber < this.shipsList.size(); thisShipNumber++) {
-            //while loop goes if this.Armada's ship wins
-            while (this.shipsList.get(thisShipNumber).countLivingPirates() - this.shipsList.get(thisShipNumber).captain.intoxication >=
-                    (anotherArmada.shipsList.get(anotherShipNumber)).countLivingPirates() - anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication) {
+            while (thisArmadaWins(anotherArmada, thisShipNumber, anotherShipNumber)) {
                 //anotherArmada ship always lose in while loop
-                // printing round details
-                System.out.println("Round number: " + roundNumber);
-                roundNumber++;
-                System.out.println(this.name + " wins, ship number: " + (thisShipNumber + 1) + " , number of living pirates: " + this.shipsList.get(thisShipNumber).countLivingPirates() + " , captain intox: " + this.shipsList.get(thisShipNumber).captain.intoxication);
-                System.out.println(anotherArmada.name + " lost, ship number: " + (anotherShipNumber + 1) + " , number of living pirates: " + anotherArmada.shipsList.get(anotherShipNumber).countLivingPirates() + " , captain intox: " + anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication);
-                System.out.println();
+                printRoundDetails(this, anotherArmada, thisShipNumber, anotherShipNumber);
                 //initiating battle
                 this.shipsList.get(thisShipNumber).battle(anotherArmada.shipsList.get(anotherShipNumber));
-
                 //returns true if there are no more ships in another's Armada
                 if (anotherShipNumber < anotherArmada.shipsList.size() - 1) {
                     anotherShipNumber++;
@@ -48,15 +54,9 @@ public class Armada {
                 }
             }
             //thisArmada ship always lose here
-            //printing round details
-            System.out.println("Round number: " + roundNumber);
-            roundNumber++;
-            System.out.println("China wins, ship number: " + (anotherShipNumber + 1) + " , number of living pirates: " + anotherArmada.shipsList.get(anotherShipNumber).countLivingPirates() + " , captain intox: " + anotherArmada.shipsList.get(anotherShipNumber).captain.intoxication);
-            System.out.println("USA lost, ship number: " + (thisShipNumber + 1) + " , number of living pirates: " + this.shipsList.get(thisShipNumber).countLivingPirates() + " , captain intox: " + this.shipsList.get(thisShipNumber).captain.intoxication);
-            System.out.println();
+            printRoundDetails(anotherArmada, this, anotherShipNumber, thisShipNumber);
             //initiating battle
             this.shipsList.get(thisShipNumber).battle(anotherArmada.shipsList.get(anotherShipNumber));
-
         }
         // for-loop ends = no more ships in thisArmada
         return false;

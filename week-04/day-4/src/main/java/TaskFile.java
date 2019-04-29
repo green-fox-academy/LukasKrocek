@@ -10,7 +10,7 @@ public class TaskFile {
 
     public static void removeTask(int taskNumber) {
         fileToTaskList();
-        checkTaskNumber(taskNumber);
+        if (!isInTheList(taskNumber)) return;
         tasks.remove(taskNumber - 1);
         taskListToFile();
         System.out.println("Task removed");
@@ -18,7 +18,7 @@ public class TaskFile {
 
     public static void changeStatus(int taskNumber) {
         fileToTaskList();
-        checkTaskNumber(taskNumber);
+        if (!isInTheList(taskNumber)) return;
         changeIt(taskNumber);
         taskListToFile();
         System.out.println("Task marked as done");
@@ -37,12 +37,15 @@ public class TaskFile {
             System.out.println("No tasks in the list");
             return;
         }
+        printAllLines();
+    }
+
+    private static void printAllLines() {
         int taskCounter = 1;
         for (String task : tasks) {
             System.out.print(taskCounter + " - ");
             System.out.println(task);
             taskCounter++;
-
         }
     }
 
@@ -52,13 +55,14 @@ public class TaskFile {
         tasks.set(index, changeTask);
     }
 
-    private static void checkTaskNumber(int taskNumber) {
+    private static boolean isInTheList(int taskNumber) {
         int index = taskNumber - 1;
-        if (index >= tasks.size()) {
+        if (index >= tasks.size() || index < 0) {
             System.out.println("No task with this number");
             System.out.println();
-            return;
+            return false;
         }
+        return true;
     }
 
     private static void fileToTaskList() {
