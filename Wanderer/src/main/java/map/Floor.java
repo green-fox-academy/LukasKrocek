@@ -1,12 +1,10 @@
 package map;
+import painters.PositionedImage;
 
-import map.Tile;
-
-public class Floor extends Tile {
+public class Floor extends PositionedImage {
 
     public Floor(String filename, int posX, int posY) {
         super(filename, posX, posY);
-        reachibility = true;
     }
 }
 

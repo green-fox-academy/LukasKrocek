@@ -2,30 +2,65 @@ package character;
 
 import map.Map;
 
-public class Hero extends CharacterOnMap{
-    public static String filename = "hero-down.png";
-    public static int indexX = 0;
-    public static int indexY = 0;
-    public static int posX;
-    public static int posY;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 
-    public Hero() {
+public class Hero extends CharacterOnMap {
+    public String filename = "hero-down.png";
+    public int indexX = 0;
+    public int indexY = 0;
+    public int posX;
+    public int posY;
 
+
+    public Hero(String filename, int posX, int posY) {
         super(filename, posX, posY);
-        posX = indexX * Map.getFieldSize();
-        posY = indexY * Map.getFieldSize();
+        this.posX = indexX * Map.getFieldSize();
+        this.posY = indexY * Map.getFieldSize();
         level = 1;
-        int levelBooster = (level-1)*(rollDice());
-        maxHP = 20 + 3 * rollDice()+levelBooster;
+        maxHP = 20 + 3 * rollDice();
         currentHP = maxHP;
-        defendPoint = 2 * rollDice()+levelBooster;
-        strikePoint = 5 + rollDice()+levelBooster;
+        defendPoint = 2 * rollDice();
+        strikePoint = 5 + rollDice();
+    }
+
+    public void regenHP (){
+        int options = (int)(Math.random()*10);
+        if (options<4){  //40%
+            currentHP += maxHP/3;
+        } else if (options ==4){ //10%
+            currentHP = maxHP;
+        } else { //50%
+            currentHP += maxHP/10;
+        }
+        if (currentHP>maxHP){
+            currentHP = maxHP;
+        }
+    }
+
+    public boolean isAlive() {
+        return (currentHP > 0);
+    }
+
+    public void setToStart() {
+        this.posX = 0;
+        this.posY = 0;
+        this.indexX = 0;
+        this.indexY = 0;
     }
 
     @Override
-    public String toString() {
-        return "Hero (Level " + level + ") HP: " + currentHP + "/" + maxHP + " | DP: " + defendPoint + " | SP: " + strikePoint;
+    public void draw(Graphics graphics) {
+        try {
+            this.image = ImageIO.read(new File(this.filename));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (image != null) {
+            graphics.drawImage(this.image, this.posX, this.posY, null);
+        }
     }
-
 }

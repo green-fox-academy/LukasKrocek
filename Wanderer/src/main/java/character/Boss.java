@@ -3,12 +3,11 @@ package character;
 public class Boss extends Monster{
     private static String filename = "boss.png";
 
-    public Boss() {
-        super(filename);
-        level = 1;
+    public Boss(int level) {
+        super(filename,level);
         maxHP = level*2*rollDice()+rollDice();
         currentHP = maxHP;
-        defendPoint = level/2*rollDice()+rollDice()/2;
+        defendPoint = (int)(level*0.5*rollDice()+rollDice()*0.5);
         strikePoint = level*rollDice() + level;
     }
 }
