@@ -1,4 +1,4 @@
-package character;
+package postionedimages;
 
 public class Boss extends Monster{
     private static String filename = "boss.png";

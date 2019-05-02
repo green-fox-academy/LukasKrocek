@@ -1,16 +1,16 @@
 package map;
 
-import painters.PositionedImage;
+import postionedimages.PositionedImage;
 
 import java.awt.*;
 
 public class Map {
 
 
-    private static int boardSize = 720;
-    private static int fieldSize = boardSize / Matrix.matrixSize;
-    public static int getBoardSize() {
-        return boardSize;
+    private static int mapSize = 720;
+    private static int fieldSize = mapSize / Matrix.matrixSize;
+    public static int getMapSize() {
+        return mapSize;
     }
 
     public static int getFieldSize() {
@@ -30,9 +30,9 @@ public class Map {
                     PositionedImage wall = new Wall("wall.png", posX, posY);
                     wall.draw(graphics);
                 }
-                posX += boardSize / Matrix.matrixSize;
+                posX += mapSize / Matrix.matrixSize;
             }
-            posY += boardSize / Matrix.matrixSize;
+            posY += mapSize / Matrix.matrixSize;
             posX = 0;
         }
     }

@@ -1,6 +1,6 @@
 package map;
 
-import painters.PositionedImage;
+import postionedimages.PositionedImage;
 
 public class Wall extends PositionedImage {
     public Wall(String filename, int posX, int posY) {

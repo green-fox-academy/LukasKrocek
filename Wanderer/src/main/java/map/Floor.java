@@ -1,5 +1,5 @@
 package map;
-import painters.PositionedImage;
+import postionedimages.PositionedImage;
 
 public class Floor extends PositionedImage {
 

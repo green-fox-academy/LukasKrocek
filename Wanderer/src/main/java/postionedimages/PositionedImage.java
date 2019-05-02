@@ -1,4 +1,4 @@
-package painters;
+package postionedimages;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -6,10 +6,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public abstract class PositionedImage {
+public class PositionedImage {
 
     public BufferedImage image;
-    protected int posX, posY;
+    public int posX, posY;
+    protected int indexX;
+    protected int indexY;
 
     public PositionedImage(String filename, int posX, int posY) {
         try {

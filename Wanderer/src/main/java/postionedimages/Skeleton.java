@@ -1,4 +1,4 @@
-package character;
+package postionedimages;
 
 public class Skeleton extends Monster{
     private static String filename = "skeleton.png";

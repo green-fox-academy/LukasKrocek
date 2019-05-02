@@ -1,4 +1,4 @@
-package character;
+package postionedimages;
 
 import map.Map;
 
@@ -10,10 +10,6 @@ import java.io.IOException;
 
 public class Hero extends CharacterOnMap {
     public String filename = "hero-down.png";
-    public int indexX = 0;
-    public int indexY = 0;
-    public int posX;
-    public int posY;
 
 
     public Hero(String filename, int posX, int posY) {

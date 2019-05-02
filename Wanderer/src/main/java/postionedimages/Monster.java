@@ -1,11 +1,7 @@
-package character;
-
-import map.Map;
+package postionedimages;
 import map.Matrix;
 
 public class Monster extends CharacterOnMap {
-    int indexX;
-    int indexY;
 
     public Monster(String filename, int level) {
         super(filename, RandomPosition.getPosX(), RandomPosition.getPosY());
@@ -20,21 +16,17 @@ public class Monster extends CharacterOnMap {
 
     public void move() {
         int direction = (int) (Math.random() * 4); //0-up,1-down,2-right, 3 left
-        if (direction == 0 && indexY > 0 && isItFloor(getIndexX(), getIndexY() - 1)) {
-            indexY--;
-            posY -= Map.getFieldSize();
+        if (direction == 0) {
+            moveUp();
         }
-        if (direction == 1 && indexY < Matrix.matrixSize-1 && isItFloor(getIndexX(), getIndexY() + 1)) {
-            indexY++;
-            posY += Map.getFieldSize();
+        if (direction == 1) {
+            moveDown();
         }
-        if (direction == 2 && indexX < Matrix.matrixSize-1 && isItFloor(getIndexX()+1, getIndexY())) {
-            indexX++;
-            posX += Map.getFieldSize();
+        if (direction == 2) {
+            moveRight();
         }
-        if (direction == 3 && indexX > 0 && isItFloor(getIndexX()-1, getIndexY())) {
-            indexX--;
-            posX -= Map.getFieldSize();
+        if (direction == 3) {
+           moveLeft();
         }
     }
 

@@ -1,9 +1,7 @@
-package character;
+package postionedimages;
 
 import map.Map;
 import map.Matrix;
-
-import java.util.ArrayList;
 
 public class RandomPosition {
     static int posX;
