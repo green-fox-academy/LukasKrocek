@@ -44,7 +44,7 @@ public class PaintAction {
         } else if (monster.strikePoint < hero.defendPoint) { //50-83% chance
             graphics.setColor(Color.orange);
             graphics.fillRect(positionX,y,barWidth,barHeight);
-        } else if (monster.strikePoint > hero.defendPoint){ //100% chance
+        } else if (monster.strikePoint >= hero.defendPoint){ //100% chance
             graphics.setColor(Color.red);
             graphics.fillRect(positionX,y,barWidth,barHeight);
         }

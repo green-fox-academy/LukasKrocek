@@ -10,8 +10,8 @@ public class PositionedImage {
 
     public BufferedImage image;
     public int posX, posY;
-    protected int indexX;
-    protected int indexY;
+    public int indexX;
+    public int indexY;
 
     public PositionedImage(String filename, int posX, int posY) {
         try {

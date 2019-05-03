@@ -29,7 +29,7 @@ public class Board extends JComponent implements KeyListener {
     public Board() {
         key = new Key();
         hero = new Hero("hero-down.png", 0, 0);
-        timeBetweenMovements = 1000;
+        timeBetweenMovements = 1920;
         currentLevel = 0;
         boardWidth = 1350;
         boardHeight = 720;
@@ -42,16 +42,43 @@ public class Board extends JComponent implements KeyListener {
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
+            doctor = new Doctor();
             for (Monster monster : monsters) {
-                doctor = new Doctor();
                 monster.move();
-                repaint();
             }
+            repaint();
+        }
+    };
+
+    TimerTask changePosition = new TimerTask() {
+        @Override
+        public void run() {
+            for (Monster monster : monsters) {
+                if (monster.move) {
+                    if (monster.direction == 0) {
+                        monster.posY -= 3;
+                    } else if (monster.direction == 1) {
+                        monster.posY += 3;
+                    } else if (monster.direction == 2) {
+                        monster.posX += 3;
+                    } else if (monster.direction == 3) {
+                        monster.posX -= 3;
+                    }
+
+                }
+
+                repaint();
+
+            }
+
+            repaint();
+
         }
     };
 
     public void startTimer() {
         timer.scheduleAtFixedRate(task, timeBetweenMovements, timeBetweenMovements);
+        timer.scheduleAtFixedRate(changePosition, timeBetweenMovements, 80);
     }
 
 
@@ -63,12 +90,13 @@ public class Board extends JComponent implements KeyListener {
         doctorUsed = false;
         map = new Map();
         currentLevel++;
-        Matrix.generateMatrix();
+        Matrix.clearMatrix();
+        Matrix.generateMatrix(0,0);
         doctor = new Doctor();
         monsters = new ArrayList<>();
-        monsters.add(new Boss(currentLevel + (int) (Math.random() * currentLevel)));
-        for (int i = 0; i < (int) (Math.random() * 3 + currentLevel); i++) {
-            monsters.add(new Skeleton(currentLevel + (int) (Math.random() * currentLevel)));
+        monsters.add(new Boss(currentLevel + (int) (Math.random() * currentLevel*3)));
+        for (int i = 0; i < (int) (Math.random()*currentLevel*currentLevel+5); i++) {
+            monsters.add(new Skeleton(currentLevel + (int) (Math.random() * currentLevel*currentLevel)));
         }
         int whoGetsKey = (int) (Math.random() * monsters.size());
         monsters.get(whoGetsKey).setKeyToTrue();
@@ -125,13 +153,13 @@ public class Board extends JComponent implements KeyListener {
             paintActions.drawCharacterStats(hero, stringPositionY);
             int monsterCounter = 0;
             for (Monster monster : monsters) {
-                if (monster.getIndexX() == hero.getIndexX() && monster.getIndexY() == hero.getIndexY()) {
+                if (Math.abs(monster.posX - hero.posX) < Map.getFieldSize() / 2 && Math.abs(monster.posY - hero.posY) < Map.getFieldSize() / 2) {
                     monsterCounter++;
                     if (monsterCounter == 1) {
                         stringPositionY += 40;
                         graphics.drawString("To battle press SPACE", Map.getMapSize() + 50, stringPositionY);
                     }
-                    stringPositionY += 50;
+                    stringPositionY += 60;
                     paintActions.penetrationIndicator(stringPositionY, monster, hero, graphics);
 
                     paintActions.drawCharacterStats(monster, stringPositionY);
@@ -176,20 +204,20 @@ public class Board extends JComponent implements KeyListener {
 
             //battle
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            int indexOfMonsterToRemove = -1;
+            ArrayList <Monster> monsttersToRemove = new ArrayList<>();
             for (Monster monster : monsters) {
-                if (monster.getIndexY() == hero.getIndexY() && monster.getIndexX() == hero.getIndexX()) {
+                if (Math.abs(monster.posX - hero.posX) < Map.getFieldSize() / 2 && Math.abs(monster.posY - hero.posY) < Map.getFieldSize() / 2) {
                     hero.battle(monster);
                     if (monster.currentHP <= 0) {
-                        indexOfMonsterToRemove = monsters.indexOf(monster);
+                        monsttersToRemove.add(monster);
                     }
                 }
             }
-            if (indexOfMonsterToRemove >= 0) {
-                if (monsters.get(indexOfMonsterToRemove).hasKey()) {
+            for (Monster monsterDelete:monsttersToRemove){
+                if (monsterDelete.hasKey()) {
                     hero.setKeyToTrue();
                 }
-                monsters.remove(indexOfMonsterToRemove);
+                monsters.remove(monsterDelete);
                 hero.levelUp();
             }
         }
@@ -197,3 +225,4 @@ public class Board extends JComponent implements KeyListener {
         repaint();
     }
 }
+
