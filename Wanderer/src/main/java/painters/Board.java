@@ -83,7 +83,7 @@ public class Board extends JComponent implements KeyListener {
 
 
     public void regenerateMap() {
-        hero.setKeyToFalse();
+        hero.setKey(false);
         hero.setToStart();
         hero.regenHP();
         keyStrokeCounter = 0;
@@ -94,12 +94,12 @@ public class Board extends JComponent implements KeyListener {
         Matrix.generateMatrix(0,0);
         doctor = new Doctor();
         monsters = new ArrayList<>();
-        monsters.add(new Boss(currentLevel + (int) (Math.random() * currentLevel*3)));
-        for (int i = 0; i < (int) (Math.random()*currentLevel*currentLevel+5); i++) {
-            monsters.add(new Skeleton(currentLevel + (int) (Math.random() * currentLevel*currentLevel)));
+        monsters.add(new Boss(currentLevel));
+        for (int i = 0; i < currentLevel + 1; i++) {
+            monsters.add(new Skeleton(currentLevel));
         }
         int whoGetsKey = (int) (Math.random() * monsters.size());
-        monsters.get(whoGetsKey).setKeyToTrue();
+        monsters.get(whoGetsKey).setKey(true);
         repaint();
     }
 
@@ -215,7 +215,7 @@ public class Board extends JComponent implements KeyListener {
             }
             for (Monster monsterDelete:monsttersToRemove){
                 if (monsterDelete.hasKey()) {
-                    hero.setKeyToTrue();
+                    hero.setKey(true);
                 }
                 monsters.remove(monsterDelete);
                 hero.levelUp();

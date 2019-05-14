@@ -10,7 +10,7 @@ public class Matrix {
     public static int[][] matrixArray = new int[matrixSize][matrixSize];
 
     public static void generateMatrix( int x, int y) {
-        if (neighborhoodIsSafe(x,y)==false ||  matrixArray[x][y] == 1) {
+        if (isNeighborSafe(x,y)==false ||  matrixArray[x][y] == 1) {
             return;
         }
         matrixArray[x][y] = 1;
@@ -43,7 +43,7 @@ public class Matrix {
         }
     }
 
-    public static boolean neighborhoodIsSafe(int x, int y) {
+    public static boolean isNeighborSafe(int x, int y) {
         if (countSafeNeibours(x, y) <= 1) {
             return true;
         } else {

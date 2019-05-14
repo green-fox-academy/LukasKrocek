@@ -103,12 +103,8 @@ public abstract class CharacterOnMap extends PositionedImage {
         }
     }
 
-    public void setKeyToTrue() {
-        this.hasKey = true;
-    }
-
-    public void setKeyToFalse() {
-        this.hasKey = false;
+    public void setKey(boolean hasKey) {
+        this.hasKey = hasKey;
     }
 
     public boolean hasKey() {
