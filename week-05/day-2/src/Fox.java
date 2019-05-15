@@ -1,5 +1,3 @@
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
-
 public class Fox {
 
     private String name;

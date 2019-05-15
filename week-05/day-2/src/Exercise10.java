@@ -1,16 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Exercise10 {
-    /*
-Write a Stream Expression to find the foxes with green color!
-Write a Stream Expression to find the foxes with green color, and age less then 5 years!
-Write a Stream Expression to find the frequency of foxes by color!
-     */
-
     public static void main(String[] args) {
         List<Fox> foxFarm = new ArrayList<>();
         foxFarm.add(new Fox("fox1", "orange", 5));
