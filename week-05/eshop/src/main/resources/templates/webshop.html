@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/styles.css"/>
+
+</head>
+<body>
+<h1>Shit-Shop</h1>
+<a href="/webshop">Home</a>
+<a href="/only-available">Only Available</a>
+<a href="/cheapest-first">Cheapest First</a>
+<a href="/contains-nike">Contains Nike</a>
+<a href="/average-stock">Average</a>
+<a href="/most-expensive">Most Expensive</a>
+
+<form method="post" action="/webshop/search">
+    <input name="search" type="text" placeholder="... Something like nike">
+    <input type="submit" value="SEARCH">
+</form>
+
+<table>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.getName()}"></td>
+        <td th:text="${item.getDescription()}"></td>
+        <td th:text="${item.getPrice()}"></td>
+        <td th:text="${item.getStock()}"></td>
+    </tr>
+</table>
+</body>
+</html>
