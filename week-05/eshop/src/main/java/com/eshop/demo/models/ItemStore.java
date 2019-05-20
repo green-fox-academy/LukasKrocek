@@ -34,6 +34,8 @@ public class ItemStore {
     }
 
     public List<Item> getItemsContainingNike() {
+        String nike = "nike";
+
         return items.stream()
                 .filter(i -> i.getName().contains("nike") || i.getDescription().contains("nike"))
                 .collect(Collectors.toList());
@@ -41,7 +43,7 @@ public class ItemStore {
 
     public List<Item> contains(String search) {
         return items.stream()
-                .filter(i -> i.getName().contains(search) || i.getDescription().contains(search))
+                .filter(i -> i.getName().toLowerCase().contains(search.toLowerCase()) || i.getDescription().toLowerCase().contains(search.toLowerCase()))
                 .collect(Collectors.toList());
     }
 

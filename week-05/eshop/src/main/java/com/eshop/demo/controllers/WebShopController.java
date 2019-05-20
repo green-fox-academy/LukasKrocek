@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class WebShopController {
     ItemStore store = new ItemStore();
 
-    @RequestMapping(value = "/webshop")
+    @RequestMapping(value = "/")
     public String displayAll(Model model) {
 
         model.addAttribute("items", store.getItems());
@@ -43,7 +43,7 @@ public class WebShopController {
         return "averagestock";
     }
 
-    @RequestMapping(value = "/webshop/search") //not ready
+    @RequestMapping(value = "/webshop/search")
     public String search(Model model, @RequestParam String search) {
         model.addAttribute("items", store.contains(search));
         return "webshop";

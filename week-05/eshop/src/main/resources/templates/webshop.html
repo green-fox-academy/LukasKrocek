@@ -7,8 +7,9 @@
 
 </head>
 <body>
+
 <h1>Shit-Shop</h1>
-<a href="/webshop">Home</a>
+<a href="/">Home</a>
 <a href="/only-available">Only Available</a>
 <a href="/cheapest-first">Cheapest First</a>
 <a href="/contains-nike">Contains Nike</a>
@@ -28,7 +29,7 @@
     <tr th:each="item : ${items}">
         <td th:text="${item.getName()}"></td>
         <td th:text="${item.getDescription()}"></td>
-        <td th:text="${item.getPrice()}"></td>
+        <td th:text="${item.getPrice()} + ' Kč'"></td>
         <td th:text="${item.getStock()}"></td>
     </tr>
 </table>

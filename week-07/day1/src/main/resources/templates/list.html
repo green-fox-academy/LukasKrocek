@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <title>List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<span th:each="account: ${accountList}">
+     <p th:text="${accountStat.index} + ' ' + ${account.getDescription()}"/>
+</span>
+
+<form method="post" action="/increment">
+    <input name="animal" type="text" placeholder="Owner name">
+    <input type="submit" value="Raise Balance">
+</form>
+
+</br>
+
+<h2>post method</h2>
+<form action="/handle-the-form" method="post" th:object="${newAccount}">
+    <input type="text" th:field="*{name}" placeholder="Name"><br>
+    <input type="number" th:field="*{balance}" placeholder="Account Balance"><br>
+    <input type="text" th:field="*{animalType}" placeholder="Animal Type"><br>
+    <label for ="king2">Is he King?</label>
+    <input type="checkbox" id="king2" th:field="*{king}"><br>
+    <label for ="goodguy2">Is he good Guy?</label>
+    <input type="checkbox" id="goodguy2" th:field="*{goodGuy}"><br>
+    <input type="submit" value="OKAY">
+</form>
+
+</br>
+
+
+</body>
+</html>
