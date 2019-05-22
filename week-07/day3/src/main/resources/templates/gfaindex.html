@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2 th:text="'There are ' + ${studentCount} + ' students in this class'"/>
+
+<form action="/gfa/list">
+    <input type="submit" value="List all names">
+</form>
+
+<form action="/gfa/add">
+    <input type="submit" value="add student">
+</form>
+
+<form action="/gfa/check">
+    <input type="submit" value="check student">
+</form>
+
+</body>
+</html>
