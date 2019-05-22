@@ -10,6 +10,7 @@
 
 <span th:each="account: ${accountList}">
      <p th:text="${accountStat.index} + ' ' + ${account.getDescription()}"/>
+
 </span>
 
 <form method="post" action="/increment">
