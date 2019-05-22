@@ -1,6 +1,5 @@
 package com.example.dependencies.controllers;
 
-import com.example.dependencies.services.StudentService;
 import com.example.dependencies.services.StudentServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

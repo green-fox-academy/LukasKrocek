@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/styles.css"/>
+
 </head>
 <body>
-<table>
-    <tr th:each="name: ${students}">
-        <p th:text="${name}"/>
-    </tr>
 
-</table>
+<h3>NAMES</h3>
+<p th:each="name: ${students}" th:text="${name}"/>
 
 </body>
 </html>
