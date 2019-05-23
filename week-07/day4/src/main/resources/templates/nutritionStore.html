@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post">
+    <label for="meal"> Food </label>
+    <select id="meal" name="meal">
+        <option th:each="meal:${meals}" th:text="${meal}"></option>
+    </select>
+
+    <label for="drink"> Drink </label>
+    <select id="drink" name="drink">
+        <option th:each="drink:${drinks}" th:text="${drink}"></option>
+    </select>
+
+    <input type="submit" value="CHANGE">
+
+</form>
+
+</body>
+</html>

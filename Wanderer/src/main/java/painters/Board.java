@@ -18,7 +18,7 @@ public class Board extends JComponent implements KeyListener {
     ArrayList<Monster> monsters;
     Hero hero;
     Key key;
-    Doctor doctor;
+    //Doctor doctor;
     boolean doctorUsed = false;
     int boardWidth;
     int boardHeight;
@@ -42,7 +42,7 @@ public class Board extends JComponent implements KeyListener {
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            doctor = new Doctor();
+           // doctor = new Doctor();
             for (Monster monster : monsters) {
                 monster.move();
             }
@@ -92,10 +92,10 @@ public class Board extends JComponent implements KeyListener {
         currentLevel++;
         Matrix.clearMatrix();
         Matrix.generateMatrix(0,0);
-        doctor = new Doctor();
+        //doctor = new Doctor();
         monsters = new ArrayList<>();
         monsters.add(new Boss(currentLevel));
-        for (int i = 0; i < currentLevel + 1; i++) {
+        for (int i = 0; i < currentLevel - 1; i++) {
             monsters.add(new Skeleton(currentLevel));
         }
         int whoGetsKey = (int) (Math.random() * monsters.size());
@@ -120,6 +120,7 @@ public class Board extends JComponent implements KeyListener {
             graphics.setColor(new Color(122, 31, 31));
             graphics.fillRect(0, 0, boardWidth, boardHeight);
             map.generateMap(graphics);
+
             for (Monster monster : monsters) {
                 monster.draw(graphics);
             }
@@ -138,7 +139,7 @@ public class Board extends JComponent implements KeyListener {
                 graphics.setFont(new Font("Courier New", Font.BOLD, fontSize));
                 graphics.drawString("Level:" + currentLevel, 150, Map.getMapSize() / 2 - fontSize / 2);
             }
-
+/*
             if (hero.getIndexX() == doctor.getIndexX() && hero.getIndexY() == doctor.getIndexY() && !doctorUsed) {
                 doctor.heal(hero);
                 doctorUsed = true;
@@ -146,6 +147,8 @@ public class Board extends JComponent implements KeyListener {
             if (!doctorUsed) {
                 doctor.draw(graphics);
             }
+
+ */
             hero.draw(graphics);
 
             int stringPositionY = 40;

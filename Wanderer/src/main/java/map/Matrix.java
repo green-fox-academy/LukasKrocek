@@ -10,7 +10,7 @@ public class Matrix {
     public static int[][] matrixArray = new int[matrixSize][matrixSize];
 
     public static void generateMatrix( int x, int y) {
-        if (isNeighborSafe(x,y)==false ||  matrixArray[x][y] == 1) {
+        if (!isNeighborSafe(x,y)) {
             return;
         }
         matrixArray[x][y] = 1;

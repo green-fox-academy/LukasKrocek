@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="/greenfox.png" alt="Green Fox">
+<p th:text="'This is Mr.'+${fox.getName()} + '. Currently living on ' + ${fox.getFood()}+ ' and ' + ${fox.getDrink()}+'. He knows ' + ${fox.getTricks().size()}+' tricks.'"/>
+<h2>Known tricks</h2>
+<ul th:each="trick:${fox.getTricks()}">
+    <li th:text="${trick}">
+</ul>
+
+<form method="post">
+    <label for="endpoint"> Options </label>
+    <select id="endpoint" name="endpoint">
+        <option>ChangeNutrition</option>
+        <option>TrickCenter</option>
+    </select>
+    <input type="submit" value="GO">
+</form>
+</br>
+
+<h3>Created Foxes</h3>
+<p th:each="fox: ${allFoxes}" th:text="${fox.getName()}"></p>
+</body>
+
+<form action="/CreateFox">
+    <input type="submit" value="Create New Fox">
+</form>
+<form action="/login">
+    <input type="submit" value="Login to Existing Fox">
+</form>
+</html>
