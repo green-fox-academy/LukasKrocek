@@ -39,6 +39,7 @@ public class MainController {
     @GetMapping(value = "/login")
     public String returnLoginPage(Model model) {
         model.addAttribute("info", "Login");
+        model.addAttribute("allFoxes",foxState.getFoxes());
         return "login";
     }
 
@@ -52,7 +53,8 @@ public class MainController {
 
     @GetMapping(value = "/CreateFox")
     public String returnCreateFoxPage(Model model) {
-        model.addAttribute("info", "Create new Fox");
+        model.addAttribute("info", "This fox doesn't exists.");
+        model.addAttribute("allFoxes",foxState.getFoxes());
         return "login";
     }
 

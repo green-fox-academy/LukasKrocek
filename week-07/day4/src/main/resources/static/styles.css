@@ -1,0 +1,18 @@
+body {
+    background-color: slategray;
+    padding: 0% 5%;
+    align-content: center;
+}
+
+.foxinfo {
+    background-color: white;
+    padding: 5%;
+}
+
+input {
+    min-width: 150px;
+    margin: 5px 0;
+}
+select{
+    min-height: 30px;
+}
