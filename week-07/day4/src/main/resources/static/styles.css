@@ -16,3 +16,7 @@ input {
 select{
     min-height: 30px;
 }
+
+.navigation {
+    display: inline-block;
+}

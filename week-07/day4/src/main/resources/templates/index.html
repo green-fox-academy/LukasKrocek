@@ -8,9 +8,14 @@
 
 </head>
 <body>
-<form action="/login">
+
+<form class="navigation" action="/login">
     <input type="submit" value="Go to Another Fox">
 </form>
+<form class="navigation" action="/addOptions">
+    <input type="submit" value="Add Options">
+</form>
+
 <div class="foxinfo">
 <img src="/greenfox.png" alt="Green Fox">
 <p th:text="'This is Mr.'+${fox.getName()} + '. Currently living on ' + ${fox.getMeal()}+ ' and ' + ${fox.getDrink()}+'. He knows ' + ${fox.getTricks().size()}+' tricks.'"/>

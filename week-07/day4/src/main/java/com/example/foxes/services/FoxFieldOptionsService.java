@@ -51,7 +51,7 @@ public class FoxFieldOptionsService {
         }
     }
 
-    private List getAllOptionsFromClass(String optionClassName) { //get all drinks, meals or tricks
+    public List getAllOptionsFromClass(String optionClassName) { //get all drinks, meals or tricks
         return options.stream()
                 .filter(foxFieldOption -> foxFieldOption.getFieldClassName().toLowerCase().equals(optionClassName.toLowerCase()))
                 .map(foxFieldOption -> foxFieldOption.getFieldOption())
