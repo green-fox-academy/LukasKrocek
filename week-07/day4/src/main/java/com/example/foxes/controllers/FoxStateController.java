@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller //managing fox fields (add/change)
-public class FoxController {
+public class FoxStateController {
 
     private FoxStateService foxState;
     private FieldOptionsService fieldService;
 
     @Autowired
-    public FoxController(FoxStateService foxState, FieldOptionsService fieldService) {
+    public FoxStateController(FoxStateService foxState, FieldOptionsService fieldService) {
         this.foxState = foxState;
         this.fieldService = fieldService;
     }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service //managing fox list (adding, deleting, searching)
-public class ManageFoxesService {
+public class FoxesManagerService {
     private List<Fox> foxes = new ArrayList<>();
 
     public List<Fox> getFoxes() {

@@ -8,7 +8,6 @@ import com.example.foxes.models.foxfieldoptions.Trick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,10 +15,10 @@ import java.util.stream.Collectors;
 @Service
 public class FieldOptionsService {
     private List<FoxFieldOption> options;
-    private ManageFoxesService foxManager;
+    private FoxesManagerService foxManager;
 
     @Autowired
-    public FieldOptionsService(ManageFoxesService foxManager) {  //creates default options list
+    public FieldOptionsService(FoxesManagerService foxManager) {  //creates default options list
         this.foxManager = foxManager;
         options = new ArrayList<>();
         addOption("meal", "Steak");

@@ -1,18 +1,18 @@
 package com.example.foxes.controllers;
 
-import com.example.foxes.services.ManageFoxesService;
+import com.example.foxes.services.FoxesManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller //redirections, fox, login/create
-public class MainController {
+@Controller
+public class MainController {  //Redirections and Model Views only
 
-    private ManageFoxesService foxManager;
+    private FoxesManagerService foxManager;
 
     @Autowired
-    public MainController(ManageFoxesService foxManager) {
+    public MainController(FoxesManagerService foxManager) {
         this.foxManager = foxManager;
     }
 
@@ -35,7 +35,7 @@ public class MainController {
     @PostMapping(value = "/login")
     public String loginHandler(@RequestParam String name) {
         if (foxManager.foxExists(name)) {
-            return "redirect:?name=" + name;
+            return "redirect:?name=" + name; //redirects to home page with logged fox
         }
         return "redirect:/CreateFox";
     }
@@ -47,14 +47,7 @@ public class MainController {
         return "login";
     }
 
-    @PostMapping(value = "/CreateFox")
-    public String createFox(@RequestParam String name) {
-        if (!foxManager.foxExists(name)) {
-            foxManager.addFox(name);
-        }
-        return "redirect:?name=" + name;
-    }
-
+//change to PathVariable
     @PostMapping(value = "/")
     public String navigationHandler(@RequestParam String endpoint, @RequestParam String name) {
         return "redirect:/" + endpoint + "?name=" + name;
@@ -66,6 +59,7 @@ public class MainController {
         return "listOfChanges";
     }
 
+    //change to PathVariable - post to get
     @PostMapping(value = "/ShowChanges")
     public String goHome(@RequestParam String name) {
         return "redirect:/" + "?name="+ name;

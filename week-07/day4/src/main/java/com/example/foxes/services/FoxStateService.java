@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 @Service //managing fields of single fox
 public class FoxStateService {
 
-    private ManageFoxesService foxManager;
+    private FoxesManagerService foxManager;
 
     @Autowired
-    public FoxStateService (ManageFoxesService foxManager){
+    public FoxStateService (FoxesManagerService foxManager){
         this.foxManager = foxManager;
     }
 

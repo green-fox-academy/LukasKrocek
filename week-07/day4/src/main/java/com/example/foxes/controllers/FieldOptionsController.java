@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller //managing possible fields(tricks,meals,drinks), add/delete/modify
-public class FoxFieldOptionsController {
+public class FieldOptionsController {
 
     private FieldOptionsService fieldService;
 
     @Autowired
-    public FoxFieldOptionsController(FieldOptionsService fieldService) {
+    public FieldOptionsController(FieldOptionsService fieldService) {
         this.fieldService = fieldService;
     }
 
