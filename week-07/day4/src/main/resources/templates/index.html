@@ -16,7 +16,7 @@
     <input type="submit" value="Add Options">
 </form>
 
-<div class="foxinfo">
+<div class="content">
 <img src="/greenfox.png" alt="Green Fox">
 <p th:text="'This is Mr.'+${fox.getName()} + '. Currently living on ' + ${fox.getMeal()}+ ' and ' + ${fox.getDrink()}+'. He knows ' + ${fox.getTricks().size()}+' tricks.'"/>
 <h2>Known tricks</h2>
@@ -29,6 +29,8 @@
     <select id="endpoint" name="endpoint">
         <option>ChangeNutrition</option>
         <option>TrickCenter</option>
+        <option>ShowChanges</option>
+
     </select>
     <input type="submit" value="GO">
 </form>

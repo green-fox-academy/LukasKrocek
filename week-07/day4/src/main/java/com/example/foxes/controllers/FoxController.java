@@ -1,7 +1,6 @@
 package com.example.foxes.controllers;
 
-import com.example.foxes.models.Fox;
-import com.example.foxes.services.FoxFieldOptionsService;
+import com.example.foxes.services.FieldOptionsService;
 import com.example.foxes.services.FoxStateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller //managing fox fields (add/change)
 public class FoxController {
 
-    FoxStateService foxState;
-    FoxFieldOptionsService fieldService;
+    private FoxStateService foxState;
+    private FieldOptionsService fieldService;
 
     @Autowired
-    public FoxController(FoxStateService foxState, FoxFieldOptionsService fieldService) {
+    public FoxController(FoxStateService foxState, FieldOptionsService fieldService) {
         this.foxState = foxState;
         this.fieldService = fieldService;
     }
@@ -36,7 +35,6 @@ public class FoxController {
         return "redirect:?name=" + name;
     }
 
-
     @GetMapping(value = "/TrickCenter")
     public String returnTrickCenter(@RequestParam String name, Model model) {
         model.addAttribute("tricks", fieldService.getAvailableOptionsFromClass(name,"trick"));
@@ -45,12 +43,7 @@ public class FoxController {
 
     @PostMapping(value = "/TrickCenter")
     public String addTrick(@RequestParam String name, @RequestParam String trick) {
-        for (Fox fox : foxState.getFoxes()) {
-            if (fox.getName().equals(name))
-                fox.addTrick(trick);
-        }
+        foxState.learnTrick(name,trick);
         return "redirect:?name=" + name;
     }
-
-
 }

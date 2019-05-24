@@ -2,8 +2,8 @@ package com.example.foxes.models.foxfieldoptions;
 
 public abstract class FoxFieldOption {
 
-    String fieldOption;
-    String fieldClassName;
+    private String fieldOption;
+    private String fieldClassName;
 
     public FoxFieldOption (String fieldOption){
         this.fieldOption = fieldOption;

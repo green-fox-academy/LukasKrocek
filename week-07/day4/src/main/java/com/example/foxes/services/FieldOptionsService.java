@@ -8,18 +8,19 @@ import com.example.foxes.models.foxfieldoptions.Trick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class FoxFieldOptionsService {
-    List<FoxFieldOption> options;
-    FoxStateService foxState;
+public class FieldOptionsService {
+    private List<FoxFieldOption> options;
+    private ManageFoxesService foxManager;
 
     @Autowired
-    public FoxFieldOptionsService(FoxStateService foxState) {  //creates default options list
-        this.foxState = foxState;
+    public FieldOptionsService(ManageFoxesService foxManager) {  //creates default options list
+        this.foxManager = foxManager;
         options = new ArrayList<>();
         addOption("meal", "Steak");
         addOption("meal", "Pizza");
@@ -59,7 +60,7 @@ public class FoxFieldOptionsService {
     }
 
     public List getAvailableOptionsFromClass(String foxName, String optionClassName) {
-        Fox sampleFox = foxState.getFoxByName(foxName);
+        Fox sampleFox = foxManager.getFoxByName(foxName);
         List<String> availableOptionList = getAllOptionsFromClass(optionClassName);
         for (String trick : sampleFox.getTricks()) {
             availableOptionList.remove(trick);

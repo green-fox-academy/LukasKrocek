@@ -1,48 +1,25 @@
 package com.example.foxes.services;
 
-
-import com.example.foxes.models.Fox;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Service
+@Service //managing fields of single fox
 public class FoxStateService {
-    private List<Fox> foxes = new ArrayList<>();
 
-    public List<Fox> getFoxes() {
-        return foxes;
-    }
+    private ManageFoxesService foxManager;
 
-    public boolean foxExists(String name) {
-        for (Fox fox : foxes) {
-            if (fox.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void addFox(String name) {
-        foxes.add(new Fox(name));
-    }
-
-    public Fox getFoxByName(String foxName) {
-        for (Fox fox : foxes) {
-            if (fox.getName().equals(foxName)) {
-                return fox;
-            }
-        }
-        return null;
+    @Autowired
+    public FoxStateService (ManageFoxesService foxManager){
+        this.foxManager = foxManager;
     }
 
     public void changeNutrition(String foxName, String meal, String drink) {
-        for (Fox fox : foxes) {
-            if (fox.getName().equals(foxName)) {
-                fox.setMeal(meal);
-                fox.setDrink(drink);
-            }
-        }
+
+                foxManager.getFoxByName(foxName).setMeal(meal);
+                foxManager.getFoxByName(foxName).setDrink(drink);
+    }
+
+    public void learnTrick (String foxName, String trickName){
+        foxManager.getFoxByName(foxName).addTrick(trickName);
     }
 }

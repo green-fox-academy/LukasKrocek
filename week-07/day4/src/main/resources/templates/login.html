@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<div class="content">
 <p th:text="${info}"></p>
 <form method="post" action="/login">
 <input name = "name" type="text" placeholder="Fox name..." required>
@@ -18,8 +19,10 @@
     <input name = "name" type="text" placeholder="Fox name..." required>
     <input type="submit" value="Create new Fox">
 </form>
+
 </br>
-<h3>Created Foxes</h3>
-<p th:each="fox: ${allFoxes}" th:text="${fox.getName()}"></p>
+<h3 class="info">Created Foxes</h3>
+<span th:each="fox: ${allFoxes}" th:text="${fox.getName()}+', '"></span>
+</div>
 </body>
 </html>
