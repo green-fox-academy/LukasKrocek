@@ -7,10 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Controller
+@Controller //redirections, fox, login/create
 public class MainController {
 
     FoxStateService foxState;
@@ -44,7 +41,7 @@ public class MainController {
     }
 
     @PostMapping(value = "/login")
-    public String returnMainPageWithParam(@RequestParam String name) {
+    public String loginHandler(@RequestParam String name) {
         if (foxState.foxExists(name)) {
             return "redirect:?name=" + name;
         }

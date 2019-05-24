@@ -24,14 +24,25 @@ public class FoxStateService {
         return false;
     }
 
-    public Fox findFoxByName(String name) {
-        return foxes.stream()
-                .filter(f -> f.getName().equals(name))
-                .findAny()
-                .get();
-    }
-
     public void addFox(String name) {
         foxes.add(new Fox(name));
+    }
+
+    public Fox getFoxByName(String foxName) {
+        for (Fox fox : foxes) {
+            if (fox.getName().equals(foxName)) {
+                return fox;
+            }
+        }
+        return null;
+    }
+
+    public void changeNutrition(String foxName, String meal, String drink) {
+        for (Fox fox : foxes) {
+            if (fox.getName().equals(foxName)) {
+                fox.setMeal(meal);
+                fox.setDrink(drink);
+            }
+        }
     }
 }

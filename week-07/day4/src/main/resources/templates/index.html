@@ -8,9 +8,12 @@
 
 </head>
 <body>
+<form action="/login">
+    <input type="submit" value="Go to Another Fox">
+</form>
 <div class="foxinfo">
 <img src="/greenfox.png" alt="Green Fox">
-<p th:text="'This is Mr.'+${fox.getName()} + '. Currently living on ' + ${fox.getFood()}+ ' and ' + ${fox.getDrink()}+'. He knows ' + ${fox.getTricks().size()}+' tricks.'"/>
+<p th:text="'This is Mr.'+${fox.getName()} + '. Currently living on ' + ${fox.getMeal()}+ ' and ' + ${fox.getDrink()}+'. He knows ' + ${fox.getTricks().size()}+' tricks.'"/>
 <h2>Known tricks</h2>
 <ul th:each="trick:${fox.getTricks()}">
     <li th:text="${trick}">
@@ -25,13 +28,7 @@
     <input type="submit" value="GO">
 </form>
 </div>
-<div class ="foxes">
-<h3>Created Foxes</h3>
-<p th:each="fox: ${allFoxes}" th:text="${fox.getName()}"></p>
-    <form action="/login">
-        <input type="submit" value="Go to Another Fox">
-    </form>
-</div>
+
 </body>
 
 
