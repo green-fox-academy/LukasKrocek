@@ -1,16 +1,14 @@
 package com.example.connecttomysql.controllers;
 
-import com.example.connecttomysql.repositories.ToDoRepository;
+import com.example.connecttomysql.models.ToDo;
 import com.example.connecttomysql.services.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping ("/todo")
+@RequestMapping("/todo")
 public class ToDoController {
 
     private ToDoService service;
@@ -20,14 +18,26 @@ public class ToDoController {
         this.service = service;
     }
 
-    @GetMapping (value = {"/","/list"})
-    public String list (Model model, @RequestParam (required = false, defaultValue = "false") Boolean isActive){
-        if (isActive){
-            model.addAttribute("todos",service.filterByActive());
+    @GetMapping(value = {"", "/", "/list"})
+    public String list(Model model, @RequestParam(required = false, defaultValue = "false") Boolean isActive) {
+        if (isActive) {
+            model.addAttribute("todos", service.filterByActive());
         } else {
-            model.addAttribute("todos",service.getToDoList());
+            model.addAttribute("todos", service.getToDoList());
         }
         return "todolist";
+    }
+
+    @GetMapping("/addNew")
+    public String displayAddForm(Model model) {
+        model.addAttribute("newToDo", new ToDo());
+        return "addToDo";
+    }
+
+    @PostMapping("/addNew")
+    public String addTask(@ModelAttribute ToDo toDo) {
+        service.add(toDo);
+        return "redirect:/todo/";
     }
 }
 

@@ -30,4 +30,8 @@ public class ToDoService {
                 .filter(toDo -> !toDo.isDone())
                 .collect(Collectors.toList());
     }
+
+    public void add (ToDo todo){
+        repository.save(todo);
+    }
 }
