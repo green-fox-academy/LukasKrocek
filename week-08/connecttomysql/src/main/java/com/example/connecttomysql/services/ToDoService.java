@@ -19,23 +19,32 @@ public class ToDoService {
         this.repository = repository;
     }
 
-    public List <ToDo> getToDoList (){
-        List <ToDo> allToDoes = new ArrayList<>();
-        repository.findAll().forEach(allToDoes:: add);
+    public List<ToDo> getToDoList() {
+        List<ToDo> allToDoes = new ArrayList<>();
+        repository.findAll().forEach(allToDoes::add);
         return allToDoes;
     }
 
-    public List <ToDo> filterByActive(){
+    public List<ToDo> filterByActive() {
+
         return getToDoList().stream()
                 .filter(toDo -> !toDo.isDone())
                 .collect(Collectors.toList());
     }
 
-    public void add (ToDo todo){
+    public void add(ToDo todo) {
         repository.save(todo);
     }
 
-    public void delete(long id){
+    public void delete(long id) {
         repository.deleteById(id);
+    }
+
+    public ToDo getToDoById(long id) {
+        return repository.findById(id).get();
+    }
+
+    public void edit (ToDo toDo){
+        repository.save(toDo);
     }
 }

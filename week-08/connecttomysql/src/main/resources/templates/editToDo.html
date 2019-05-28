@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" th:object="${newToDo}">
+<form method="post" th:object="${toDo}" action="/todo/edit">
+    <input type="hidden" th:field="*{id}">
     <input type="text" th:field="*{title}" required> <br>
     <label for="urgent">Urgent</label>
     <input type="checkbox" th:field="*{urgent}" ID="urgent"><br>
@@ -15,4 +16,3 @@
 </form>
 </body>
 </html>
-

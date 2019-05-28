@@ -17,18 +17,6 @@ public class ToDo {
     public ToDo (){
     }
 
-    public ToDo(String title) {
-        this.title = title;
-        this.urgent = false;
-        this.done = false;
-    }
-
-    public ToDo(String title,Boolean urgent, Boolean done) {
-        this.title = title;
-        this.urgent = urgent;
-        this.done = done;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -55,6 +43,10 @@ public class ToDo {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override
