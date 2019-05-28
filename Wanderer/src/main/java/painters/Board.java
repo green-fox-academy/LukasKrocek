@@ -95,7 +95,7 @@ public class Board extends JComponent implements KeyListener {
         //doctor = new Doctor();
         monsters = new ArrayList<>();
         monsters.add(new Boss(currentLevel));
-        for (int i = 0; i < currentLevel - 1; i++) {
+        for (int i = 0; i < currentLevel + 5; i++) {
             monsters.add(new Skeleton(currentLevel));
         }
         int whoGetsKey = (int) (Math.random() * monsters.size());
