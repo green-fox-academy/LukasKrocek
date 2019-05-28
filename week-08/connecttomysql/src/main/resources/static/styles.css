@@ -4,4 +4,5 @@ th,td {
     min-height: 20px;
     min-width: 100px;
     background-color: darkgrey;
+    text-align: center;
 }

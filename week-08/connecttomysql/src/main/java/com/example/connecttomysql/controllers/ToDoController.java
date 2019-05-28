@@ -34,6 +34,12 @@ public class ToDoController {
         return "addToDo";
     }
 
+    @GetMapping("/{id}/delete")
+    public String deleteTask(@PathVariable long id) {
+        service.delete(id);
+        return "redirect:/todo/";
+    }
+
     @PostMapping("/addNew")
     public String addTask(@ModelAttribute ToDo toDo) {
         service.add(toDo);
