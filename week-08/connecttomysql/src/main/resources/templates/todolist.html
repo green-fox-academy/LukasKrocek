@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/styles.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1>Todos for today</h1>
-<table>
+<div class="container-fluid">
+    <h1>Todos for today</h1>
+
     <form action="/todo/addNew">
-        <input type="submit" value="Add New ToDo">
+        <input class="btn btn-primary" type="submit" value="Add New ToDo">
     </form>
-    <tr>
-        <th>ID</th>
-        <th>ACTION</th>
-        <th>DONE</th>
-        <th>URGENT</th>
-    </tr>
-    <tr th:each="todo: ${todos}">
-        <td th:text="${todo.getId()}"></td>
-        <td th:text="${todo.getTitle()}"></td>
-        <td th:text="${todo.isDone()}"></td>
-        <td th:text="${todo.isUrgent()}"></td>
-        <td><a th:href="@{'/todo/'+ ${todo.getId()} + '/delete'}">Delete</a></td>
-        <td><a th:href="@{'/todo/'+ ${todo.getId()} + '/edit'}">Edit</a></td>
-    </tr>
-</table>
+
+    <table class="table table-bordered">
+        <tr class="thead-dark">
+            <th>ID</th>
+            <th>ACTION</th>
+            <th>DONE</th>
+            <th>URGENT</th>
+        </tr>
+        <tr th:each="todo: ${todos}">
+            <td th:text="${todo.getId()}"></td>
+            <td th:text="${todo.getTitle()}"></td>
+            <td th:text="${todo.isDone()}"></td>
+            <td th:text="${todo.isUrgent()}"></td>
+            <td><a class="btn btn-warning" th:href="@{'/todo/'+ ${todo.getId()} + '/edit'}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/todo/'+ ${todo.getId()} + '/delete'}">Delete</a></td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

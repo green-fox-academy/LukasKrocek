@@ -14,7 +14,7 @@ public class ToDo {
     private boolean urgent;
     private boolean done;
 
-    public ToDo (){
+    public ToDo() {
     }
 
     public String getTitle() {
@@ -50,7 +50,7 @@ public class ToDo {
     }
 
     @Override
-    public String toString (){
+    public String toString() {
         return getTitle();
     }
 }
