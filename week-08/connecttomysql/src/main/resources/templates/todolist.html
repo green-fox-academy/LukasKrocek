@@ -4,30 +4,64 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
 </head>
 <body>
-<div class="container-fluid">
-    <h1>Todos for today</h1>
+<div class="container">
+    <div style="text-align: center">
 
-    <form action="/todo/addNew">
-        <input class="btn btn-primary" type="submit" value="Add New ToDo">
-    </form>
+    <h1 >Todos for today</h1>
+        <form action="/todo/addNew" method="post" th:object="${newToDo}">
+            <legend>Add new Task</legend>
+            <input type="text" th:field="*{title}" required> <br>
+            <label for="urgent">Urgent</label>
+            <input type="checkbox" th:field="*{urgent}" ID="urgent"><br>
+            <input class="btn btn-warning" type="submit" value="Add New ToDo">
+        </form>
 
-    <table class="table table-bordered">
-        <tr class="thead-dark">
-            <th>ID</th>
-            <th>ACTION</th>
-            <th>DONE</th>
-            <th>URGENT</th>
+    </div>
+
+    <table class="table table-borderless table-hover">
+        <tr>
+            <th class="idColumn">ID</th>
+            <th class="col">Action</th>
+            <th class="doneAndUrgent">Done</th>
+            <th class="doneAndUrgent">Urgent</th>
         </tr>
-        <tr th:each="todo: ${todos}">
-            <td th:text="${todo.getId()}"></td>
-            <td th:text="${todo.getTitle()}"></td>
-            <td th:text="${todo.isDone()}"></td>
-            <td th:text="${todo.isUrgent()}"></td>
-            <td><a class="btn btn-warning" th:href="@{'/todo/'+ ${todo.getId()} + '/edit'}">Edit</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/todo/'+ ${todo.getId()} + '/delete'}">Delete</a></td>
+
+        <tr class="border" th:each="todo: ${todos}" th:class="${todo.isDone()} ? 'table-success' : 'table-warning'">
+            <form th:if="${todo.getId()==id}" method="post" th:object="${toDo}" action="/todo/edit">
+                <input type="hidden" th:field="*{id}">
+                <th th:text="${todo.getId()}"></th>
+                <td>
+                    <input type="text" th:field="*{title}" required> <br>
+                </td>
+                <td>
+                    <input type="checkbox" th:field="*{done}"><br>
+                </td>
+                <td>
+                    <input type="checkbox" th:field="*{urgent}"><br>
+                </td>
+                <td><a class="btn btn-danger" th:href="@{'/todo/'+ ${todo.getId()} + '/delete'}">Delete</a></td>
+                <td>
+                    <input type="submit">
+                </td>
+            </form>
+
+            <div th:unless="${todo.getId()==id}">
+                <th th:text="${todo.getId()}"></th>
+                <td th:text="${todo.getTitle()}"></td>
+                <td style="text-align: center"><img
+                        th:src="${todo.isDone()} ? 'https://img.icons8.com/flat_round/30/000000/checkmark.png' : 'https://img.icons8.com/flat_round/30/000000/delete-sign.png'">
+                </td>
+                <td style="text-align: center"><img
+                        th:src="${todo.isUrgent()} ? 'https://img.icons8.com/color/30/000000/high-priority.png' : 'https://img.icons8.com/office/30/000000/medium-priority.png'">
+                </td>
+                <td><a class="btn btn-danger" th:href="@{'/todo/'+ ${todo.getId()} + '/delete'}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/todo/'+ ${todo.getId()} + '/newEdit'}">Edit</a></td>
+            </div>
         </tr>
     </table>
 </div>

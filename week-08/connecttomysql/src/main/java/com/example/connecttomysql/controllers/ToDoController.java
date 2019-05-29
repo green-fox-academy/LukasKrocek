@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/todo")
 public class ToDoController {
@@ -18,32 +20,23 @@ public class ToDoController {
         this.service = service;
     }
 
-    @GetMapping(value = {"", "/", "/list"})
-    public String list(Model model, @RequestParam(required = false, defaultValue = "false") Boolean isActive) {
-        if (isActive) {
-            model.addAttribute("todos", service.filterByActive());
+    @GetMapping(value = {"", "/", "/list","{id}/newEdit"})
+    public String list(Model model,@PathVariable Optional <Long> id) {
+        if (id.isPresent()){
+            model.addAttribute("id", id.get());
+            model.addAttribute("toDo", service.getToDoById(id.get()));
         } else {
-            model.addAttribute("todos", service.getToDoList());
+            model.addAttribute("id", -1L);
         }
-        return "todolist";
-    }
-
-    @GetMapping("/addNew")
-    public String displayAddForm(Model model) {
         model.addAttribute("newToDo", new ToDo());
-        return "addToDo";
+        model.addAttribute("todos", service.getToDoList());
+        return "todolist";
     }
 
     @GetMapping("/{id}/delete")
     public String deleteTask(@PathVariable long id) {
         service.delete(id);
         return "redirect:/todo/";
-    }
-
-    @GetMapping("/{id}/edit")
-    public String displayEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("toDo", service.getToDoById(id));
-        return "editToDo";
     }
 
     @PostMapping("/edit")
