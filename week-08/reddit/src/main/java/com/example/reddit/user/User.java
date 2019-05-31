@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.servlet.http.Cookie;
 import java.util.List;
 
 @Entity
@@ -13,8 +14,9 @@ import java.util.List;
 public class User {
 
     @Id
-    String userName;
-    String password;
+    private String userName;
+    private String password;
+    private String cookie;
 
     @OneToMany(mappedBy = "user")
     List<Post> posts;
@@ -22,7 +24,8 @@ public class User {
     public User() {
     }
 
-    public User(String userName) {
+    public User(String userName, String password) {
         this.userName = userName;
+        this.password = password;
     }
 }

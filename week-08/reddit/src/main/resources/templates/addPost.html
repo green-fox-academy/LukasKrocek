@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
+<div th:insert="fragments.html :: header">...</div>
+
 <div class="container">
 
     <form method="post" th:object="${post}">

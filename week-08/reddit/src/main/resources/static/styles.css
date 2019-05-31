@@ -1,0 +1,25 @@
+.login-form {
+    border: 1px dotted #616161;
+    background-color: #cfcfcf;
+    padding: 50px;
+    margin-top: 50px;
+}
+
+.errors {
+    text-align: center;
+
+}
+
+.table-danger{
+    display: inline-block;
+    min-width: 300px;
+    min-height: 30px;
+    font-size: 20px;
+    margin: 5px;
+    padding: 0 5px;
+}
+
+.header-panel a {
+    text-decoration: none;
+    color: white;
+}

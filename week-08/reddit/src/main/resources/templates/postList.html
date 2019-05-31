@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
+<div th:insert="fragments.html :: header">...</div>
 <div class="container">
-    <a href="posts/addPost">Submit Post</a>
     <table class="table">
         <tr th:each="post:${posts}">
             <td>

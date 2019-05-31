@@ -1,5 +1,6 @@
 package com.example.reddit.post;
 
+import com.example.reddit.user.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +13,13 @@ public class PostController {
 
     private PostRepo posts;
     private PostService postService;
+    private UserRepo users;
 
     @Autowired
-    public PostController(PostRepo posts, PostService postService) {
+    public PostController(PostRepo posts, PostService postService, UserRepo users) {
         this.posts = posts;
         this.postService = postService;
+        this.users = users;
     }
 
     @GetMapping(value = {"", "{numberOfPage}/show"})
@@ -30,15 +33,22 @@ public class PostController {
     }
 
     @GetMapping("/addPost")
-    public String showAddPost(Model model) {
+    public String showAddPost(Model model,@CookieValue(required = false) String session) {
+        if(session==null){
+            return "redirect:/notLoggedIn";
+        }
         model.addAttribute("post", new Post());
         return "addPost";
     }
 
     @PostMapping("/addPost")
-    public String addPost(@ModelAttribute Post newPost) {
-        posts.save(newPost);
-        return "redirect:/posts";
+    public String addPost(@ModelAttribute Post newPost,@CookieValue String session) {
+        if(users.findFirstByCookie(session).isPresent()) {
+            newPost.setUser(users.findFirstByCookie(session).get());
+            posts.save(newPost);
+            return "redirect:/posts";
+        }
+        return "redirect:/invalidSessionCookie";
     }
 
     @PostMapping(value = {"","{numberOfPage}/show"})
