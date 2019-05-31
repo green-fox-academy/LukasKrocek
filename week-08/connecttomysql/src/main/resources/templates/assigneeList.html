@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th class="idColumn">ID</th>
+            <th>Name</th>
+            <th>Tasks</th>
+            <th class="doneAndUrgent">Email</th>
+        </tr>
+
+        <tr class="border" th:each="assignee: ${assignees}">
+            <form th:if="${assignee.getAssigneeID()==id}" method="post" th:object="${assignee}" action="/assignee/edit">
+                <input type="hidden" th:field="*{assigneeID}">
+                <th th:text="${assignee.assigneeID}"></th>
+                <td>
+                    <input type="text" th:field="*{name}" required> <br>
+                </td>
+                <td>Tasks</td>
+                <td style="text-align: center">
+                    <input type="email" th:field="*{email}"><br>
+                </td>
+                <td style="text-align: center"><a class="btn btn-danger"
+                                                  th:href="@{'/assignee/'+ ${assignee.getAssigneeID()} + '/delete'}">Delete</a>
+                </td>
+                <td>
+                    <input type="submit">
+                </td>
+            </form>
+
+            <div th:unless="${assignee.getAssigneeID()==id}">
+                <th th:text="${assignee.getAssigneeID()}"></th>
+                <td th:text="${assignee.getName()}"></td>
+                <td th:text="${assignee.getEmail()}"></td>
+
+                <td><a class="btn btn-danger" th:href="@{'/assignee/'+ ${assignee.getAssigneeID()} + '/delete'}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/assignee/'+ ${assignee.getAssigneeID()} + '/edit'}">Edit</a></td>
+                <td><a class="btn btn-info" th:href="@{'/'+ ${assignee.getAssigneeID()} + '/todo'}">Tasks</a></td>
+
+            </div>
+        </tr>
+    </table>
+
+    <form class="border" action="/assignee/addNew" method="post" th:object="${newAssignee}">
+        <legend>Add new Assignee</legend>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" type="text" th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" id="email" type="email" th:field="*{email}">
+
+        </div>
+        <div class="form-group">
+            <input class="btn btn-warning" type="submit" value="Add New Assignee">
+        </div>
+    </form>
+    <br>
+    <form method="get" action="/todo/list">
+        <input type="submit" value="List of ToDoes">
+    </form>
+</div>
+</body>
+</html>

@@ -1,8 +1,6 @@
 package com.example.connecttomysql.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ToDo {
@@ -10,11 +8,24 @@ public class ToDo {
     @Id
     @GeneratedValue
     private long id;
+
     private String title;
     private boolean urgent;
     private boolean done;
 
+    @ManyToOne
+    @JoinColumn(name = "assigneeID")
+    private Assignee assignee;
+
     public ToDo() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -23,10 +34,6 @@ public class ToDo {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public boolean isUrgent() {
@@ -45,13 +52,12 @@ public class ToDo {
         this.done = done;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Assignee getAssignee() {
+        return assignee;
     }
 
-    @Override
-    public String toString() {
-        return getTitle();
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 }
 
