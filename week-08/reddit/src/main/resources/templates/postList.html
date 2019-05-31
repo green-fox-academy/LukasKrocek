@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+<div class="container">
+    <a href="/addPost">Submit Post</a>
+    <table class="table">
+        <tr th:each="post:${posts}">
+            <td>
+                <form class="align-middle" method="post">
+                    <input type="hidden" name="vote" value="up">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <input type="submit" value="🡅">
+                </form>
+                <p class="votes text-center" th:text="${post.votes}"></p>
+                <form class="align-middle" method="post">
+                    <input type="hidden" name="vote" value="down">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <input type="submit" value="🡇">
+                </form>
+            </td>
+            <td class="col align-middle">
+                <a th:href="${post.url}" th:text="${post.title}"></a>
+            </td>
+            <td class="col align-middle" th:text="${post.date}"></td>
+        </tr>
+    </table>
+
+
+</div>
+</body>
+</html>
