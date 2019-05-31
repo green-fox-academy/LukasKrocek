@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 @Controller
+@RequestMapping("/posts")
 public class PostController {
 
     private PostRepo posts;
@@ -36,17 +38,17 @@ public class PostController {
     @PostMapping("/addPost")
     public String addPost(@ModelAttribute Post newPost) {
         posts.save(newPost);
-        return "redirect:/";
+        return "redirect:/posts";
     }
 
     @PostMapping(value = {"","{numberOfPage}/show"})
     public String vote(@RequestParam String vote, @RequestParam Long id,@PathVariable(required = false) Integer numberOfPage) {
-        Post temporary = posts.findFirstById(id);
+        Post temporary = posts.findFirstByPostID(id);
         temporary.changeVotes(vote);
         posts.save(temporary);
         if(numberOfPage==null) {
-            return "redirect:";
+            return "redirect:/posts";
         }
-        return "redirect:/"+numberOfPage+"/show";
+        return "redirect:/posts/"+numberOfPage+"/show";
     }
 }

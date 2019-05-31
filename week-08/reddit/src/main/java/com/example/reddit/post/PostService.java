@@ -12,8 +12,6 @@ public class PostService {
 
     private PostRepo posts;
     private int pageSize = 4;
-    private List<Integer> pageNumbers;
-
 
     @Autowired
     public PostService(PostRepo posts) {
@@ -24,12 +22,12 @@ public class PostService {
         return posts.findAllOnPage(PageRequest.of(numberOfPage - 1, pageSize));
     }
 
-    public int getNumberOfPages() {
-        return posts.findAll().size() / pageSize;
+    private int getNumberOfPages() {
+        return posts.findAll().size() / pageSize+1;
     }
 
     public List<Integer> getPageNumberList() {
-        pageNumbers = new ArrayList<>();
+        List<Integer> pageNumbers = new ArrayList<>();
         int numberOfPage = 0;
         for (int i = 0; i < getNumberOfPages(); i++) {
             numberOfPage++;
