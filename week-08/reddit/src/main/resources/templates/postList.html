@@ -31,7 +31,9 @@
             <td class="col align-middle" th:text="${post.date}"></td>
         </tr>
     </table>
-
+    <div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-secondary" th:each="pageNumber:${pageNumbers}" th:href="@{'/'+${pageNumber}+'/show'}" th:text="${pageNumber}"></a>
+    </div>
 
 </div>
 </body>

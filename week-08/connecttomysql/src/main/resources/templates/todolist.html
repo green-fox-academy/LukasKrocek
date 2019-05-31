@@ -58,11 +58,11 @@
                         th:src="${todo.isUrgent()} ? 'https://img.icons8.com/color/30/000000/high-priority.png' : 'https://img.icons8.com/office/30/000000/medium-priority.png'">
                 </td>
                 <td><a class="btn btn-danger" th:href="@{'/todo/'+ ${todo.getId()} + '/delete'}">Delete</a></td>
-                <td><a class="btn btn-info" th:href="@{${todo.assignee.getAssigneeID()}+'/todo/'+ ${todo.getId()} + '/edit'}">Edit</a></td>
+                <td><a class="btn btn-info" th:href="@{${todo.getId()} + '/edit'}">Edit</a></td>
             </div>
         </tr>
     </table>
-    <form class="border" th:action="@{'addNew'}" method="post" th:object="${newToDo}">
+    <form class="border" th:action="@{'todo/addNew'}" method="post" th:object="${newToDo}">
         <legend>Add new Task</legend>
         <div class="form-group">
             <label for="action">Action</label>

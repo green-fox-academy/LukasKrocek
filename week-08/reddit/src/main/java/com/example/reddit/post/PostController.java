@@ -3,24 +3,27 @@ package com.example.reddit.post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
 
-    PostRepo posts;
+    private PostRepo posts;
+    private PostService postService;
 
     @Autowired
-    public PostController(PostRepo posts) {
+    public PostController(PostRepo posts, PostService postService) {
         this.posts = posts;
+        this.postService = postService;
     }
 
-    @GetMapping("")
-    public String showPosts(Model model) {
-        model.addAttribute("posts", posts.findAllPostsWithPagination());
+    @GetMapping(value = {"", "{numberOfPage}/show"})
+    public String showPosts(Model model, @PathVariable(required = false) Integer numberOfPage) {
+        if (numberOfPage == null) {
+            numberOfPage = 1;
+        }
+        model.addAttribute("pageNumbers", postService.getPageNumberList());
+        model.addAttribute("posts", postService.getPage(numberOfPage));
         return "postList";
     }
 
@@ -36,11 +39,14 @@ public class PostController {
         return "redirect:/";
     }
 
-    @PostMapping("")
-    public String vote(@RequestParam String vote, @RequestParam Long id) {
+    @PostMapping(value = {"","{numberOfPage}/show"})
+    public String vote(@RequestParam String vote, @RequestParam Long id,@PathVariable(required = false) Integer numberOfPage) {
         Post temporary = posts.findFirstById(id);
         temporary.changeVotes(vote);
         posts.save(temporary);
-        return "redirect:/";
+        if(numberOfPage==null) {
+            return "redirect:";
+        }
+        return "redirect:/"+numberOfPage+"/show";
     }
 }
