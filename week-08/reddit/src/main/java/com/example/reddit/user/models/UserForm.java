@@ -1,4 +1,4 @@
-package com.example.reddit.user;
+package com.example.reddit.user.models;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +18,12 @@ public class UserForm {
     public UserForm() {
         errors = new ArrayList<>();
     }
+
+    public UserForm(String userName) {
+        this.userName = userName;
+        errors = new ArrayList<>();
+    }
+
 
     public boolean validLogin() {
         if (this.userName == null || this.userName.isEmpty()) {

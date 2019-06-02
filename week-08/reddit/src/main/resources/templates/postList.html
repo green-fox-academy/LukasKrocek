@@ -6,35 +6,50 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/styles.css"/>
+
 </head>
 <body>
-<div th:insert="fragments.html :: header">...</div>
+
+<div class="header" th:insert="newHeader.html :: header">...</div>
 <div class="container">
-    <table class="table">
-        <tr th:each="post:${posts}">
-            <td>
-                <form class="align-middle" method="post">
-                    <input type="hidden" name="vote" value="up">
-                    <input type="hidden" name="id" th:value="${post.postID}">
-                    <input type="submit" value="🡅">
+    <div th:each="post:${posts}" class="card text-center">
+        <div class="card-body row">
+            <div class="col-1 vote-div voting-container">
+                    <form class="align-top" method="post">
+                        <input type="hidden" name="vote" value="up">
+                        <input type="hidden" name="id" th:value="${post.postID}">
+                        <input class="vote" type="submit" value="🡅">
+                    </form>
+                    <p class="votes align-middle" th:text="${post.votes}"></p>
+                    <form class="align-bottom" method="post">
+                        <input type="hidden" name="vote" value="down">
+                        <input type="hidden" name="id" th:value="${post.postID}">
+                        <input class="vote" type="submit" value="🡇">
+                    </form>
+            </div>
+
+            <div class="col-11">
+                <div class="post-header">
+                    <small class="card-text" th:text="'Added ' + ${post.date} + '. By: '"></small>
+                    <span class="card-text" th:text="${post.user.userName}"></span>
+                </div>
+                <h5 class="card-title" th:text="${post.title}"></h5>
+                <p class="card-text" th:text="${post.url}"></p>
+                <form th:if="${post.user.getUserName()==loggedUser}" action="/posts/edit">
+                    <input type="hidden" name="postID" th:value="${post.getPostID()}">
+                    <input class="btn btn-primary" type="submit" value="edit">
                 </form>
-                <p class="votes text-center" th:text="${post.votes}"></p>
-                <form class="align-middle" method="post">
-                    <input type="hidden" name="vote" value="down">
-                    <input type="hidden" name="id" th:value="${post.postID}">
-                    <input type="submit" value="🡇">
-                </form>
-            </td>
-            <td class="col align-middle">
-                <a th:href="${post.url}" th:text="${post.title}"></a>
-            </td>
-            <td class="col align-middle" th:text="${post.date}"></td>
-        </tr>
-    </table>
-    <div class="btn-group" role="group" aria-label="Basic example">
-    <a class="btn btn-secondary" th:each="pageNumber:${pageNumbers}" th:href="@{'/posts/'+${pageNumber}+'/show'}" th:text="${pageNumber}"></a>
+            </div>
+        </div>
     </div>
+
+    <ul class="nav justify-content-center">
+        <a class="btn btn-secondary" th:each="pageNumber:${pageNumbers}"
+           th:href="@{'/posts/'+${pageNumber}+'/show'}"
+           th:text="${pageNumber}"></a>
+    </ul>
 
 </div>
 </body>
 </html>
+

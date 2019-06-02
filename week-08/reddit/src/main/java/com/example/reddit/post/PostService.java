@@ -18,12 +18,16 @@ public class PostService {
         this.posts = posts;
     }
 
-    public List<Post> getPage(int numberOfPage) {
+    public List<Post> getPage(Integer numberOfPage) {
+        if (numberOfPage == null) {
+            return posts.findAllOnPage(PageRequest.of(0, pageSize));
+        }
         return posts.findAllOnPage(PageRequest.of(numberOfPage - 1, pageSize));
     }
 
     private int getNumberOfPages() {
-        return posts.findAll().size() / pageSize+1;
+        int numberOfPages = posts.findAll().size()/pageSize;
+        return (int)(Math.ceil((double)posts.findAll().size() / pageSize));
     }
 
     public List<Integer> getPageNumberList() {

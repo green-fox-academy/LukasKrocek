@@ -10,7 +10,7 @@
 
 }
 
-.table-danger{
+.table-danger {
     display: inline-block;
     min-width: 300px;
     min-height: 30px;
@@ -23,3 +23,63 @@
     text-decoration: none;
     color: white;
 }
+
+.vote {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.vote:hover {
+    color: red;
+}
+
+.vote:focus {
+    border: transparent;
+    color: #4fff51;
+    outline:none;
+}
+
+.votes {
+    margin: 0;
+}
+
+.voting-container {
+    width: fit-content;
+    margin: 0;
+    font-size: 15px;
+}
+
+.card-body {
+    border-bottom: 1px solid #babbb7;
+}
+
+.post-header {
+    font-size: 10px;
+    color: gray;
+    text-align: left;
+}
+.post-header span{
+    color: black;
+}
+
+body {
+    background-color: #babbb7;
+}
+
+.header-panel {
+    color: black;
+    background-color: whitesmoke;
+    border: none;
+    padding: 0 5%;
+}
+
+.header {
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.col {border: 1px solid black}
