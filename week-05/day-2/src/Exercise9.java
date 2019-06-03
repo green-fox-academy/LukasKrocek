@@ -9,7 +9,7 @@ public class Exercise9 {
 
         Map<String, Long> occurencies =
                 Arrays.stream(example.toLowerCase().split(""))
-                .collect(Collectors.groupingBy(c->c,Collectors.counting()));
+                        .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         System.out.println(occurencies);
     }
 }

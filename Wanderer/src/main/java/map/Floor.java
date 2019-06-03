@@ -1,4 +1,5 @@
 package map;
+
 import postionedimages.PositionedImage;
 
 public class Floor extends PositionedImage {

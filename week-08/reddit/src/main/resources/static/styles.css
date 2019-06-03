@@ -40,7 +40,7 @@
 .vote:focus {
     border: transparent;
     color: #4fff51;
-    outline:none;
+    outline: none;
 }
 
 .votes {
@@ -58,11 +58,12 @@
 }
 
 .post-header {
-    font-size: 10px;
+    font-size: 13px;
     color: gray;
     text-align: left;
 }
-.post-header span{
+
+.post-header span {
     color: black;
 }
 
@@ -82,4 +83,6 @@ body {
     font-size: 15px;
 }
 
-.col {border: 1px solid black}
+.col {
+    border: 1px solid black
+}

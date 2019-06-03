@@ -45,7 +45,7 @@ public class ToDo {
     }
 
     @Override
-    public String toString (){
+    public String toString() {
         return getTitle();
     }
 }

@@ -9,36 +9,35 @@ public class Matrix {
     public static int matrixSize = 10;
     public static int[][] matrixArray = new int[matrixSize][matrixSize];
 
-    public static void generateMatrix( int x, int y) {
-        if (!isNeighborSafe(x,y)) {
+    public static void generateMatrix(int x, int y) {
+        if (!isNeighborSafe(x, y)) {
             return;
         }
         matrixArray[x][y] = 1;
 
-        List<Integer> list = Arrays.asList(0,1,2,3);
+        List<Integer> list = Arrays.asList(0, 1, 2, 3);
         Collections.shuffle(list);
 
-        for(int i: list)
-        {
-            if(i == 0 && (y > 0)){
-                generateMatrix( x, y - 1);
+        for (int i : list) {
+            if (i == 0 && (y > 0)) {
+                generateMatrix(x, y - 1);
             }
-            if(i == 1 && y < matrixSize - 1){
-                generateMatrix( x, y + 1);
+            if (i == 1 && y < matrixSize - 1) {
+                generateMatrix(x, y + 1);
             }
-            if(i == 2 && x < matrixSize - 1){
-                generateMatrix( x + 1, y);
+            if (i == 2 && x < matrixSize - 1) {
+                generateMatrix(x + 1, y);
             }
-            if(i == 3 && (x > 0)){
-                generateMatrix( x - 1, y);
+            if (i == 3 && (x > 0)) {
+                generateMatrix(x - 1, y);
             }
         }
     }
 
-    public static void clearMatrix(){
-        for (int i = 0; i <matrixSize ; i++) {
+    public static void clearMatrix() {
+        for (int i = 0; i < matrixSize; i++) {
             for (int j = 0; j < matrixSize; j++) {
-                matrixArray [i][j] = 0;
+                matrixArray[i][j] = 0;
             }
         }
     }

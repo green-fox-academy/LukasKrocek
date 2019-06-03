@@ -13,15 +13,15 @@ public class BackgroundController {
     UtilityService utilityService;
 
     @Autowired
-    public BackgroundController (UtilityService background){
+    public BackgroundController(UtilityService background) {
         this.utilityService = background;
     }
 
 
-    @RequestMapping (value = "/useful")
-    public String homePage (Model model, @RequestParam(value = "text",required = false) String text, @RequestParam(value="number",required = false,defaultValue = "-1") int number){
-        if (text != null && number !=-1){
-            model.addAttribute("cesar",utilityService.caesar(text,number));
+    @RequestMapping(value = "/useful")
+    public String homePage(Model model, @RequestParam(value = "text", required = false) String text, @RequestParam(value = "number", required = false, defaultValue = "-1") int number) {
+        if (text != null && number != -1) {
+            model.addAttribute("cesar", utilityService.caesar(text, number));
         }
         model.addAttribute("randomColor", "background-color:" + utilityService.randomColor());
         return "index";

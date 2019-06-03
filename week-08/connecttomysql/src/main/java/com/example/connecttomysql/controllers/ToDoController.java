@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-@RequestMapping(value = {"/todo","{assigneeID}/todo"})
+@RequestMapping(value = {"/todo", "{assigneeID}/todo"})
 public class ToDoController {
 
     private ToDoRepository toDoRepo;
@@ -56,7 +56,7 @@ public class ToDoController {
     }
 
     @PostMapping("/addNew")
-    public String addTask(@ModelAttribute ToDo toDo,@PathVariable Long assigneeID) {
+    public String addTask(@ModelAttribute ToDo toDo, @PathVariable Long assigneeID) {
         toDo.setAssignee(assigneeRepository.findFirstByAssigneeID(assigneeID));
         toDoRepo.save(toDo);
         return "redirect:";

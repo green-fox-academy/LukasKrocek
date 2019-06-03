@@ -14,7 +14,7 @@ public class WriteMultipleLines {
     // into the file and each line should read 'apple'
     // The function should not raise any errors if it could not write the file.
     public static void main(String[] args) {
-writeFile("log.txt","Apple",5);
+        writeFile("log.txt", "Apple", 5);
     }
 
     public static void writeFile(String pathToFile, String word, int numberOfLines) {

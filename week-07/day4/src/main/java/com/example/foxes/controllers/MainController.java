@@ -47,14 +47,14 @@ public class MainController {  //Redirections and Model Views only
         return "login";
     }
 
-//change to PathVariable
+    //change to PathVariable
     @PostMapping(value = "/")
     public String navigationHandler(@RequestParam String endpoint, @RequestParam String name) {
         return "redirect:/" + endpoint + "?name=" + name;
     }
 
     @GetMapping("/ShowChanges")
-    public String showChanges (@RequestParam String name, Model model){
+    public String showChanges(@RequestParam String name, Model model) {
         model.addAttribute("changes", foxManager.getFoxByName(name).getChanges());
         return "listOfChanges";
     }
@@ -62,6 +62,6 @@ public class MainController {  //Redirections and Model Views only
     //change to PathVariable - post to get
     @PostMapping(value = "/ShowChanges")
     public String goHome(@RequestParam String name) {
-        return "redirect:/" + "?name="+ name;
+        return "redirect:/" + "?name=" + name;
     }
 }

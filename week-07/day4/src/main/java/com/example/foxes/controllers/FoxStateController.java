@@ -24,8 +24,8 @@ public class FoxStateController {
 
     @GetMapping(value = "/ChangeNutrition")
     public String returnNutritionStore(@RequestParam String name, Model model) {
-        model.addAttribute("meals", fieldService.getAvailableOptionsFromClass(name,"meal"));
-        model.addAttribute("drinks", fieldService.getAvailableOptionsFromClass(name,"drink"));
+        model.addAttribute("meals", fieldService.getAvailableOptionsFromClass(name, "meal"));
+        model.addAttribute("drinks", fieldService.getAvailableOptionsFromClass(name, "drink"));
         return "nutritionStore";
     }
 
@@ -37,13 +37,13 @@ public class FoxStateController {
 
     @GetMapping(value = "/TrickCenter")
     public String returnTrickCenter(@RequestParam String name, Model model) {
-        model.addAttribute("tricks", fieldService.getAvailableOptionsFromClass(name,"trick"));
+        model.addAttribute("tricks", fieldService.getAvailableOptionsFromClass(name, "trick"));
         return "trickCenter";
     }
 
     @PostMapping(value = "/TrickCenter")
     public String addTrick(@RequestParam String name, @RequestParam String trick) {
-        foxState.learnTrick(name,trick);
+        foxState.learnTrick(name, trick);
         return "redirect:?name=" + name;
     }
 }

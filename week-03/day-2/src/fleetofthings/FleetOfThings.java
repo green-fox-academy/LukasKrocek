@@ -13,13 +13,12 @@ public class FleetOfThings {
         // 4. [x] Eat lunch
         fleet.add(new Thing("Get milk"));
         fleet.add(new Thing("Remove the obstacles"));
-        Thing standUp = new Thing ("Stand up");
+        Thing standUp = new Thing("Stand up");
         standUp.complete();
         fleet.add(standUp);
-        Thing eatLunch = new Thing ("Eat lunch");
+        Thing eatLunch = new Thing("Eat lunch");
         eatLunch.complete();
         fleet.add(eatLunch);
-
 
 
         System.out.println(fleet);

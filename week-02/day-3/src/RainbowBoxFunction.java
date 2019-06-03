@@ -18,7 +18,7 @@ public class RainbowBoxFunction {
         for (int i = 0; i < 320; i++) {
 
 
-            CenteredBox(320 - i , new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)), graphics);
+            CenteredBox(320 - i, new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255)), graphics);
 
         }
     }

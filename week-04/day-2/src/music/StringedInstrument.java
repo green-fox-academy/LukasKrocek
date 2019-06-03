@@ -13,7 +13,7 @@ public abstract class StringedInstrument extends Instrument {
 
     @Override
     public void play() {
-        System.out.println(getClass().getSimpleName()+ ", a " + numberOfStrings + "-stringed instrument that goes " + sound());
+        System.out.println(getClass().getSimpleName() + ", a " + numberOfStrings + "-stringed instrument that goes " + sound());
     }
 
     public abstract String sound();

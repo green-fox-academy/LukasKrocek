@@ -1,4 +1,5 @@
 package postionedimages;
+
 import map.Matrix;
 
 public class Monster extends CharacterOnMap {
@@ -24,7 +25,7 @@ public class Monster extends CharacterOnMap {
         } else if (direction == 2) {
             moveRight();
         } else if (direction == 3) {
-           moveLeft();
+            moveLeft();
         } else {
         }
     }
@@ -34,11 +35,11 @@ public class Monster extends CharacterOnMap {
     }
 
     public int getIndexX() {
-        return (int)indexX;
+        return (int) indexX;
     }
 
     public int getIndexY() {
-        return (int)indexY;
+        return (int) indexY;
     }
 }
 

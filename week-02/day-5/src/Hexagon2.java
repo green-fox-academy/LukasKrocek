@@ -45,35 +45,35 @@ public class Hexagon2 {
         //TOP LEFT HEXAGON
         drawHexagon(count - 1,
                 // X axis
-                leftX04, rightX13 - width / 3, x2 - width/2, x5 + width / 6,
+                leftX04, rightX13 - width / 3, x2 - width / 2, x5 + width / 6,
                 // Y axis
-                topY01, sidesY25 - height / 3, bottomY34 - 2*height / 3,
+                topY01, sidesY25 - height / 3, bottomY34 - 2 * height / 3,
                 // size
                 width / 3, height / 3, graphics);
 
         //TOP RIGHT HEXAGON
         drawHexagon(count - 1,
                 // X axis
-                leftX04 +width/3, rightX13, x2 - width/6, x5 + width / 2,
+                leftX04 + width / 3, rightX13, x2 - width / 6, x5 + width / 2,
                 // Y axis
-                topY01, sidesY25 - height / 3, bottomY34 - 2*height / 3,
+                topY01, sidesY25 - height / 3, bottomY34 - 2 * height / 3,
                 // size
                 width / 3, height / 3, graphics);
         //BOTTOM LEFT HEXAGON
         drawHexagon(count - 1,
                 // X axis
-                leftX04, rightX13 - width / 3, x2 - width/2, x5 + width / 6,
+                leftX04, rightX13 - width / 3, x2 - width / 2, x5 + width / 6,
                 // Y axis
-                topY01+2*height/3, sidesY25 + height / 3, bottomY34,
+                topY01 + 2 * height / 3, sidesY25 + height / 3, bottomY34,
                 // size
                 width / 3, height / 3, graphics);
 
         //BOTTOM RIGHT HEXAGON
         drawHexagon(count - 1,
                 // X axis
-                leftX04 +width/3, rightX13, x2 - width/6, x5 + width / 2,
+                leftX04 + width / 3, rightX13, x2 - width / 6, x5 + width / 2,
                 // Y axis
-                topY01+2*height/3, sidesY25 + height / 3, bottomY34,
+                topY01 + 2 * height / 3, sidesY25 + height / 3, bottomY34,
                 // size
                 width / 3, height / 3, graphics);
 
@@ -81,18 +81,18 @@ public class Hexagon2 {
         //MIDDLE LEFT HEXAGON
         drawHexagon(count - 1,
                 // X axis
-                leftX04-width/6, rightX13 - width / 2, x2 - 2*width/3, x5,
+                leftX04 - width / 6, rightX13 - width / 2, x2 - 2 * width / 3, x5,
                 // Y axis
-                topY01+height/3, sidesY25, bottomY34-height/3,
+                topY01 + height / 3, sidesY25, bottomY34 - height / 3,
                 // size
                 width / 3, height / 3, graphics);
 
         //MIDDLE RIGHT HEXAGON
         drawHexagon(count - 1,
                 // X axis
-                leftX04 +width/2, rightX13+width/6, x2, x5 + 2*width / 3,
+                leftX04 + width / 2, rightX13 + width / 6, x2, x5 + 2 * width / 3,
                 // Y axis
-                topY01+height/3, sidesY25, bottomY34-height/3,
+                topY01 + height / 3, sidesY25, bottomY34 - height / 3,
                 // size
                 width / 3, height / 3, graphics);
     }

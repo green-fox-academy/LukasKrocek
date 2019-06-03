@@ -8,8 +8,8 @@ public class ListIntroduction2 {
      */
 
     public static void main(String[] args) {
-        ArrayList <String> listA = new ArrayList<>(Arrays.asList("Apple", "Avocado", "Blueberries", "Durian", "Lyches"));
-        ArrayList <String> listB = listA;
+        ArrayList<String> listA = new ArrayList<>(Arrays.asList("Apple", "Avocado", "Blueberries", "Durian", "Lyches"));
+        ArrayList<String> listB = listA;
         System.out.println(listA.contains("Durian"));
         listB.remove("Durian");
         listA.add(4, "Kiwifruit");
@@ -19,21 +19,21 @@ public class ListIntroduction2 {
         System.out.println(listA.indexOf("Avocado"));
         System.out.println(listB.indexOf("Durian"));
 
-        ArrayList <String> newAnimals = new ArrayList<>(Arrays.asList("Passion Fruit","Pommelo"));
+        ArrayList<String> newAnimals = new ArrayList<>(Arrays.asList("Passion Fruit", "Pommelo"));
         listB.addAll(newAnimals);
 
         System.out.println(listA.get(2));
 
         System.out.println("-------------------------------------");
 
-        for (String fruitA:listA
-             ) {
+        for (String fruitA : listA
+        ) {
             System.out.println(fruitA);
         }
 
         System.out.println("-------------------------------------");
 
-        for (String fruitB:listB
+        for (String fruitB : listB
         ) {
             System.out.println(fruitB);
         }

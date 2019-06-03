@@ -11,7 +11,7 @@ public class Assignee {
     private String name;
     private String email;
 
-    public Assignee(){
+    public Assignee() {
     }
 
     public Assignee(String name) {

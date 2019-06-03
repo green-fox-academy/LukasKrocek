@@ -13,8 +13,8 @@ abstract class Plant {
     }
 
     public boolean setNeedsWater() {
-        return(currentWater < waterNeed);
-}
+        return (currentWater < waterNeed);
+    }
 
     public abstract void watering(int amountOfWater);
 

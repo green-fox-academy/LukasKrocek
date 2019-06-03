@@ -20,18 +20,18 @@ public class AssigneeController {
         this.repository = repository;
     }
 
-    @GetMapping(value = {"", "/", "/list","{id}/edit","/search"})
+    @GetMapping(value = {"", "/", "/list", "{id}/edit", "/search"})
     public String listAssignees(Model model, @PathVariable Optional<Long> id, @RequestParam(required = false) String search) {
-        if (id.isPresent()){
+        if (id.isPresent()) {
             model.addAttribute("id", id.get());
             model.addAttribute("assignee", repository.findFirstByAssigneeID(id.get()));
         } else {
             model.addAttribute("id", -1L);
         }
-        if (search==null) {
+        if (search == null) {
             model.addAttribute("assignees", repository.findAll());
         } else {
-            model.addAttribute("assignees",repository.findAllByNameContaining(search));
+            model.addAttribute("assignees", repository.findAllByNameContaining(search));
         }
         model.addAttribute("newAssignee", new Assignee());
         return "assigneeList";

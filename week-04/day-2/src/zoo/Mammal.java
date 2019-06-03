@@ -8,6 +8,6 @@ public class Mammal extends Animal {
 
     @Override
     public String breed() {
-return "pushing miniature versions out";
+        return "pushing miniature versions out";
     }
 }

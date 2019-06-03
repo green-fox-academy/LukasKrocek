@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by aze on 2017.04.04..
  */
-public class Extension{
+public class Extension {
     int add(int a, int b) {
         return a + b;
     }
@@ -16,8 +16,7 @@ public class Extension{
         }
         if (b > a && b > c) {
             return b;
-        }
-        else return c;
+        } else return c;
     }
 
     int median(List<Integer> pool) {

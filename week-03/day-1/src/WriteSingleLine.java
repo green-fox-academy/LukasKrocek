@@ -16,15 +16,16 @@ public class WriteSingleLine {
         String name = scanner.nextLine();
         writeLine(name);
     }
-    public static void writeLine (String name) {
-        ArrayList <String> content = new ArrayList<>();
+
+    public static void writeLine(String name) {
+        ArrayList<String> content = new ArrayList<>();
         content.add(name);
 
         try {
             Path filePath = Paths.get("my-file.txt");
-            Files.write(filePath,content);
+            Files.write(filePath, content);
 
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Unable to write file: my-file.txt");
         }
     }

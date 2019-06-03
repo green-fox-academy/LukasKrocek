@@ -6,7 +6,7 @@ public class Main {
         Carrier carrier = new Carrier(15, 20000);
         F16 f16 = new F16();
         System.out.println(f16.getStatus());
-        carrier.add (f16);
+        carrier.add(f16);
         carrier.add(new F35());
         carrier.add(new F35());
         carrier.add(new F16());

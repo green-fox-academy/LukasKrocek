@@ -26,8 +26,8 @@ public class PostService {
     }
 
     private int getNumberOfPages() {
-        int numberOfPages = posts.findAll().size()/pageSize;
-        return (int)(Math.ceil((double)posts.findAll().size() / pageSize));
+        int numberOfPages = posts.findAll().size() / pageSize;
+        return (int) (Math.ceil((double) posts.findAll().size() / pageSize));
     }
 
     public List<Integer> getPageNumberList() {

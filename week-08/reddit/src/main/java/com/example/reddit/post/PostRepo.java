@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface PostRepo extends CrudRepository<Post, Long> {
 
-    Optional <Post> findFirstByPostID(Long id);
+    Optional<Post> findFirstByPostID(Long id);
 
     @Query(
             value = "SELECT * FROM post ORDER BY votes DESC",
@@ -19,6 +19,6 @@ public interface PostRepo extends CrudRepository<Post, Long> {
 
     List<Post> findAll();
 
-    Optional <Post> findAllByUser_UserName(String userName);
+    Optional<Post> findAllByUser_UserName(String userName);
 
 }

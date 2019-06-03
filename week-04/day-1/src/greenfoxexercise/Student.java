@@ -17,9 +17,9 @@ public class Student extends Person implements Cloneable {
         skippedDays = 0;
     }
 
-@Override
-public Student clone (){
-    return new Student (this.name,this.age,this.gender,this.previousOrganization);
+    @Override
+    public Student clone() {
+        return new Student(this.name, this.age, this.gender, this.previousOrganization);
     }
 
     @Override

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping ("/todo")
+@RequestMapping("/todo")
 public class ToDoController {
 
     private ToDoRepository repository;
@@ -18,9 +18,9 @@ public class ToDoController {
         this.repository = repository;
     }
 
-    @GetMapping (value = {"/","/list"})
-    public String list (Model model){
-        model.addAttribute("todos",repository.findAll());
+    @GetMapping(value = {"/", "/list"})
+    public String list(Model model) {
+        model.addAttribute("todos", repository.findAll());
         return "todolist";
     }
 }

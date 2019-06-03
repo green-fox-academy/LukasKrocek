@@ -9,7 +9,7 @@ public class Main {
             bookings.addReservation(new Reservation());
         }
 
-        for (Reservation reservation: bookings.reservations) {
+        for (Reservation reservation : bookings.reservations) {
             System.out.println(reservation);
         }
 

@@ -37,8 +37,8 @@ public class Ship {
         return numberOfLivingPirates;
     }
 
-    private String isCaptainAlive (Ship ship){
-        if (ship.captain.alive){
+    private String isCaptainAlive(Ship ship) {
+        if (ship.captain.alive) {
             return "alive";
         } else {
             return "dead";

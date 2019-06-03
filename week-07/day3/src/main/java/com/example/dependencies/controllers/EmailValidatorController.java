@@ -13,17 +13,16 @@ public class EmailValidatorController {
     UtilityService utilityService;
 
     @Autowired
-    public EmailValidatorController (UtilityService utilityService){
+    public EmailValidatorController(UtilityService utilityService) {
         this.utilityService = utilityService;
     }
 
     @RequestMapping(value = "/useful/email")
     public String emailCheck(@RequestParam String email, Model model) {
-        if (utilityService.validateEmail(email)){
+        if (utilityService.validateEmail(email)) {
             model.addAttribute("emailvalidation", email + " is a valid email address");
             model.addAttribute("color", "Color: Green");
-        }
-        else {
+        } else {
             model.addAttribute("emailvalidation", email + " is not a valid email address");
             model.addAttribute("color", "Color: Red");
         }

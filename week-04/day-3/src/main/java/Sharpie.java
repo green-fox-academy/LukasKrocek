@@ -10,7 +10,7 @@ public class Sharpie {
         this.width = width;
     }
 
-    public void setWidth (float width){
+    public void setWidth(float width) {
         width = Math.abs(width);
         this.width = width;
     }

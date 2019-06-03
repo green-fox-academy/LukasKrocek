@@ -3,7 +3,7 @@ import map.Matrix;
 
 import javax.swing.*;
 
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("RPG Game");

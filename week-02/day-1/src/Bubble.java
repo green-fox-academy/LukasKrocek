@@ -39,7 +39,7 @@ public class Bubble {
 
             }
 
-                sortedStringArray = Arrays.toString(a);
+            sortedStringArray = Arrays.toString(a);
 
         }
         return sortedStringArray;

@@ -15,17 +15,15 @@ public class Anagram {
         String secondWord = sc.nextLine();
 
 
-        char [] firstArray = firstWord.toCharArray();
-        char [] secondArray = secondWord.toCharArray();
+        char[] firstArray = firstWord.toCharArray();
+        char[] secondArray = secondWord.toCharArray();
         Arrays.sort(firstArray);
         Arrays.sort(secondArray);
         System.out.println(firstArray);
         System.out.println(secondArray);
 
 
-
-
-        if (firstArray.equals(secondArray)){
+        if (firstArray.equals(secondArray)) {
             System.out.println("true");
         } else {
             System.out.println("false");

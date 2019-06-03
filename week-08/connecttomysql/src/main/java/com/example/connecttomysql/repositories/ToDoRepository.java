@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface ToDoRepository extends CrudRepository<ToDo, Long> {
 
-     List<ToDo> findAllByTitleContaining(String search);
+    List<ToDo> findAllByTitleContaining(String search);
 
-     ToDo findFirstById(long id);
+    ToDo findFirstById(long id);
 
-     List<ToDo> findAll();
-     //List <ToDo> findAllByAssignee_AssigneeID();
+    List<ToDo> findAll();
+    //List <ToDo> findAllByAssignee_AssigneeID();
 }
 

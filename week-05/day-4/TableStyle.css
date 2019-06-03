@@ -20,9 +20,10 @@ th {
     color: whitesmoke;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
     background-color: darkgrey;
 }
-tr:nth-child(odd){
+
+tr:nth-child(odd) {
     background-color: whitesmoke;
 }

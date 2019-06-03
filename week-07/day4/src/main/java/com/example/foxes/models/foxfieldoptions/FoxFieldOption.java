@@ -5,7 +5,7 @@ public abstract class FoxFieldOption {
     private String fieldOption;
     private String fieldClassName;
 
-    public FoxFieldOption (String fieldOption){
+    public FoxFieldOption(String fieldOption) {
         this.fieldOption = fieldOption;
         fieldClassName = getClass().getSimpleName();
     }

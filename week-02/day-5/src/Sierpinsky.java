@@ -8,9 +8,9 @@ public class Sierpinsky {
 
     public static void mainDraw(Graphics graphics) {
 
-        int x = HEIGHT/3;
-        int y = WIDTH/3;
-        int size = WIDTH/3;
+        int x = HEIGHT / 3;
+        int y = WIDTH / 3;
+        int size = WIDTH / 3;
 
 
         int count = 7;
@@ -19,29 +19,29 @@ public class Sierpinsky {
 
     }
 
-    public static void fillSquare(int count, int x, int y,int size, Graphics graphics) {
+    public static void fillSquare(int count, int x, int y, int size, Graphics graphics) {
         if (count <= 0) {
             return;
         }
 
-        graphics.fillRect(x,y,size,size);
+        graphics.fillRect(x, y, size, size);
 
         //TOP LEFT SQUARE
-        fillSquare(count - 1, x-2*size/3,y-2*size/3,size/3, graphics);
+        fillSquare(count - 1, x - 2 * size / 3, y - 2 * size / 3, size / 3, graphics);
         //TOP MIDDLE SQUARE
-        fillSquare(count - 1, x+size/3,y-2*size/3,size/3, graphics);
+        fillSquare(count - 1, x + size / 3, y - 2 * size / 3, size / 3, graphics);
         //TOP RIGHT SQUARE
-        fillSquare(count - 1, x+4*size/3,y-2*size/3,size/3, graphics);
+        fillSquare(count - 1, x + 4 * size / 3, y - 2 * size / 3, size / 3, graphics);
         //MIDDLE LEFT SQUARE
-        fillSquare(count - 1, x-2*size/3,y+size/3,size/3, graphics);
+        fillSquare(count - 1, x - 2 * size / 3, y + size / 3, size / 3, graphics);
         //MIDDLE RIGHT SQUARE
-        fillSquare(count - 1, x+4*size/3,y+size/3,size/3, graphics);
+        fillSquare(count - 1, x + 4 * size / 3, y + size / 3, size / 3, graphics);
         //BOTTOM LEFT SQUARE
-        fillSquare(count - 1, x-2*size/3,y+4*size/3,size/3, graphics);
+        fillSquare(count - 1, x - 2 * size / 3, y + 4 * size / 3, size / 3, graphics);
         //BOTTOM MIDDLE SQUARE
-        fillSquare(count - 1, x+size/3,y+4*size/3,size/3, graphics);
+        fillSquare(count - 1, x + size / 3, y + 4 * size / 3, size / 3, graphics);
         //BOTTOM RIGHT SQUARE
-        fillSquare(count - 1, x+4*size/3,y+4*size/3,size/3, graphics);
+        fillSquare(count - 1, x + 4 * size / 3, y + 4 * size / 3, size / 3, graphics);
 
     }
 

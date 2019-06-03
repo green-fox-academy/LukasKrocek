@@ -21,6 +21,7 @@ public class Blog {
     public void update(int postNumber, BlogPost replacement) {
         posts.set(postNumber, replacement);
     }
+
     @Override
     public String toString() {
         String blogPostsList = "";

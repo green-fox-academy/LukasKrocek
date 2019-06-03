@@ -13,8 +13,8 @@ public class CheckerBoard {
         for (int rows = 0; rows < 8; rows++) {
 
             for (int columns = 0; columns < 8; columns++) {
-                if (rows%2==0 && columns%2 ==0 || rows%2!=0 && columns%2 !=0)
-                graphics.fillRect(size*columns, size*rows, size, size);
+                if (rows % 2 == 0 && columns % 2 == 0 || rows % 2 != 0 && columns % 2 != 0)
+                    graphics.fillRect(size * columns, size * rows, size, size);
 
 
             }

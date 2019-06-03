@@ -13,7 +13,7 @@ public class Counter {
         System.out.println("Enter second number");
         int secondNumber = scanner.nextInt();
         if (firstNumber > secondNumber) {
-             System.out.println("The second number should be bigger");
+            System.out.println("The second number should be bigger");
         } else {
             for (int i = firstNumber; i < secondNumber; i++) {
                 System.out.print(i);

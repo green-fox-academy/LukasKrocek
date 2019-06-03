@@ -31,13 +31,13 @@ Print the value associated with key 978-1-60309-453-5
      */
 
     public static void main(String[] args) {
-        HashMap <String, String> phoneBook = new HashMap<>();
+        HashMap<String, String> phoneBook = new HashMap<>();
         phoneBook.put("978-1-60309-452-8", "A Letter to Jo");
         phoneBook.put("978-1-60309-459-7", "Lupus");
         phoneBook.put("978-1-60309-444-3", "Red Panda and Moon Bear");
         phoneBook.put("978-1-60309-461-0", "The Lab");
 
-        for (String contact: phoneBook.keySet()) {
+        for (String contact : phoneBook.keySet()) {
             System.out.println(contact);
 
         }

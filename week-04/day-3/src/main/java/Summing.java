@@ -1,8 +1,9 @@
 import java.util.List;
 
 public class Summing {
-    List <Integer> numbers;
-    Summing (List <Integer> numbers){
+    List<Integer> numbers;
+
+    Summing(List<Integer> numbers) {
         this.numbers = numbers;
     }
 

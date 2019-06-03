@@ -32,28 +32,28 @@ public class PaintAction {
     public void penetrationIndicator(int positionY, CharacterOnMap monster, CharacterOnMap hero, Graphics graphics) {
         int barWidth = 25;
         int barHeight = 25;
-        int positionX = Map.getMapSize()+10;
-        int y = positionY+10;
+        int positionX = Map.getMapSize() + 10;
+        int y = positionY + 10;
 
         if (monster.strikePoint + 12 < hero.defendPoint) { //no chance
             graphics.setColor(Color.green);
-            graphics.fillRect(positionX,y,barWidth,barHeight);
+            graphics.fillRect(positionX, y, barWidth, barHeight);
         } else if (monster.strikePoint + 8 < hero.defendPoint) { //0-50& chance
             graphics.setColor(Color.yellow);
-            graphics.fillRect(positionX,y,barWidth,barHeight);
+            graphics.fillRect(positionX, y, barWidth, barHeight);
         } else if (monster.strikePoint < hero.defendPoint) { //50-83% chance
             graphics.setColor(Color.orange);
-            graphics.fillRect(positionX,y,barWidth,barHeight);
-        } else if (monster.strikePoint >= hero.defendPoint){ //100% chance
+            graphics.fillRect(positionX, y, barWidth, barHeight);
+        } else if (monster.strikePoint >= hero.defendPoint) { //100% chance
             graphics.setColor(Color.red);
-            graphics.fillRect(positionX,y,barWidth,barHeight);
+            graphics.fillRect(positionX, y, barWidth, barHeight);
         }
 
-        graphics.drawString("Penetration : " + monster.strikePoint + "-" + (monster.strikePoint+12),positionX + barWidth + 10,y+barHeight);
+        graphics.drawString("Penetration : " + monster.strikePoint + "-" + (monster.strikePoint + 12), positionX + barWidth + 10, y + barHeight);
     }
 
     public void drawCharacterStats(CharacterOnMap character, int positionY) {
-        int positionX = Map.getMapSize()+10;
+        int positionX = Map.getMapSize() + 10;
         character.toString();
         healthBar(character, positionX, positionY);
         graphics.setColor(Color.white);

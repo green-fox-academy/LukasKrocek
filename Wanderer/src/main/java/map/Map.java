@@ -9,6 +9,7 @@ public class Map {
 
     private static int mapSize = 720;
     private static int fieldSize = mapSize / Matrix.matrixSize;
+
     public static int getMapSize() {
         return mapSize;
     }

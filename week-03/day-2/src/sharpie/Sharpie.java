@@ -10,17 +10,17 @@ We can use() the sharpie objects
 which decreases inkAmount
  */
 
-String color;
-float width;
-float inkAmount = 100;
+    String color;
+    float width;
+    float inkAmount = 100;
 
-public Sharpie (String color, float width){
-    this.color = color;
-    this.width = width;
-}
+    public Sharpie(String color, float width) {
+        this.color = color;
+        this.width = width;
+    }
 
-public void use (){
-    inkAmount --;
-}
+    public void use() {
+        inkAmount--;
+    }
 
 }

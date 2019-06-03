@@ -5,7 +5,7 @@ import map.Matrix;
 
 public class RandomPosition {
     static int posX;
-    static int posY ;
+    static int posY;
     static int indexX;
     static int indexY;
 
@@ -21,6 +21,7 @@ public class RandomPosition {
         getPositions();
         return posX;
     }
+
     public static int getPosY() {
         return posY;
     }

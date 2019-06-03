@@ -42,7 +42,7 @@ public class Board extends JComponent implements KeyListener {
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
-           // doctor = new Doctor();
+            // doctor = new Doctor();
             for (Monster monster : monsters) {
                 monster.move();
             }
@@ -91,7 +91,7 @@ public class Board extends JComponent implements KeyListener {
         map = new Map();
         currentLevel++;
         Matrix.clearMatrix();
-        Matrix.generateMatrix(0,0);
+        Matrix.generateMatrix(0, 0);
         //doctor = new Doctor();
         monsters = new ArrayList<>();
         monsters.add(new Boss(currentLevel));
@@ -207,7 +207,7 @@ public class Board extends JComponent implements KeyListener {
 
             //battle
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            ArrayList <Monster> monsttersToRemove = new ArrayList<>();
+            ArrayList<Monster> monsttersToRemove = new ArrayList<>();
             for (Monster monster : monsters) {
                 if (Math.abs(monster.posX - hero.posX) < Map.getFieldSize() / 2 && Math.abs(monster.posY - hero.posY) < Map.getFieldSize() / 2) {
                     hero.battle(monster);
@@ -216,7 +216,7 @@ public class Board extends JComponent implements KeyListener {
                     }
                 }
             }
-            for (Monster monsterDelete:monsttersToRemove){
+            for (Monster monsterDelete : monsttersToRemove) {
                 if (monsterDelete.hasKey()) {
                     hero.setKey(true);
                 }

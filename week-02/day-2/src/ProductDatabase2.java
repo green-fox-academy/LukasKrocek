@@ -15,12 +15,12 @@ public class ProductDatabase2 {
         //Which ProductsMap cost less than 201? (just the name)
         //Which ProductsMap cost more than 150? (name + price)
 
-        for (Map.Entry<String,Integer> product: ProductsMap.entrySet()
-             ) {
-            if (product.getValue()<201){
+        for (Map.Entry<String, Integer> product : ProductsMap.entrySet()
+        ) {
+            if (product.getValue() < 201) {
                 System.out.println(product.getKey());
             }
-            if (product.getValue()>150){
+            if (product.getValue() > 150) {
                 System.out.println(product);
             }
 

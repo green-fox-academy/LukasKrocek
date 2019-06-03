@@ -15,17 +15,17 @@
     <div th:each="post:${posts}" class="card text-center">
         <div class="card-body row">
             <div class="col-1 vote-div voting-container">
-                    <form class="align-top" method="post">
-                        <input type="hidden" name="vote" value="up">
-                        <input type="hidden" name="id" th:value="${post.postID}">
-                        <input class="vote" type="submit" value="🡅">
-                    </form>
-                    <p class="votes align-middle" th:text="${post.votes}"></p>
-                    <form class="align-bottom" method="post">
-                        <input type="hidden" name="vote" value="down">
-                        <input type="hidden" name="id" th:value="${post.postID}">
-                        <input class="vote" type="submit" value="🡇">
-                    </form>
+                <form class="align-top" method="post">
+                    <input type="hidden" name="vote" value="up">
+                    <input type="hidden" name="id" th:value="${post.postID}">
+                    <input class="vote" type="submit" value="🡅">
+                </form>
+                <p class="votes align-middle" th:text="${post.votes}"></p>
+                <form class="align-bottom" method="post">
+                    <input type="hidden" name="vote" value="down">
+                    <input type="hidden" name="id" th:value="${post.postID}">
+                    <input class="vote" type="submit" value="🡇">
+                </form>
             </div>
 
             <div class="col-11">

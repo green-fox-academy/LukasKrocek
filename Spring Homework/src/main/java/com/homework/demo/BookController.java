@@ -40,10 +40,10 @@ public class BookController {
     }
 
     @RequestMapping(path = "/books/{id}/details", method = RequestMethod.GET)
-    public String getBookById(Model model, @PathVariable(name="id") Integer id) {
+    public String getBookById(Model model, @PathVariable(name = "id") Integer id) {
         Book bookById = null;
 
-        for(Book book : books) {
+        for (Book book : books) {
             if (book.getId() == id) {
                 bookById = book;
             }
@@ -59,13 +59,13 @@ public class BookController {
     }
 
     @RequestMapping(path = "/books/add", method = RequestMethod.GET)
-    public String addBookForm(Model model, @ModelAttribute(name="book") Book book) {
+    public String addBookForm(Model model, @ModelAttribute(name = "book") Book book) {
         model.addAttribute("book", book);
         return "create";
     }
 
     @RequestMapping(path = "/books/add", method = RequestMethod.POST)
-    public String addBook(@ModelAttribute(name="book") Book book) {
+    public String addBook(@ModelAttribute(name = "book") Book book) {
         books.add(book);
         return "redirect:/books";
     }

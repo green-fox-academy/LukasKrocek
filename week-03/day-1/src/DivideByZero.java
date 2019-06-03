@@ -10,8 +10,8 @@ public class DivideByZero {
 
         int divider = scanner.nextInt();
         try {
-            System.out.println(10/divider);
-        } catch (ArithmeticException e){
+            System.out.println(10 / divider);
+        } catch (ArithmeticException e) {
             System.out.println("fail");
         }
     }

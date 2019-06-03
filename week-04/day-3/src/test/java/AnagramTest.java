@@ -9,7 +9,7 @@ public class AnagramTest {
         Anagram anagram = new Anagram();
         String one = "moh";
         String two = "hom";
-        assertEquals(true,anagram.isAnagram(one,two));
+        assertEquals(true, anagram.isAnagram(one, two));
 
     }
 
@@ -18,7 +18,7 @@ public class AnagramTest {
         Anagram anagram = new Anagram();
         String one = "mohsd";
         String two = "homrf";
-        assertEquals(false,anagram.isAnagram(one,two));
+        assertEquals(false, anagram.isAnagram(one, two));
 
     }
 
@@ -27,7 +27,7 @@ public class AnagramTest {
         Anagram anagram = new Anagram();
         String one = "mohsdwd";
         String two = "homrf";
-        assertEquals(false,anagram.isAnagram(one,two));
+        assertEquals(false, anagram.isAnagram(one, two));
 
     }
 
@@ -36,7 +36,7 @@ public class AnagramTest {
         Anagram anagram = new Anagram();
         String one = "moH";
         String two = "hOM";
-        assertEquals(true,anagram.isAnagram(one,two));
+        assertEquals(true, anagram.isAnagram(one, two));
 
     }
 }

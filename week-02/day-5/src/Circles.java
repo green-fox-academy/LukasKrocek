@@ -28,21 +28,21 @@ public class Circles {
             return;
         }
 
-        graphics.drawOval(x, y, width,height);
+        graphics.drawOval(x, y, width, height);
 
         //TOP CIRCLE
-        drawCircle(count - 1, x+width/4,y,
+        drawCircle(count - 1, x + width / 4, y,
 
                 width / 2, height / 2, graphics);
 
         //RIGHT BOTTOM CIRCLE
-        drawCircle(count - 1, x+15*width/32,y+6*width/16,
+        drawCircle(count - 1, x + 15 * width / 32, y + 6 * width / 16,
 
                 width / 2, height / 2, graphics);
 
 
         //RIGHT BOTTOM CIRCLE
-        drawCircle(count - 1, x+width/32,y+6*width/16,
+        drawCircle(count - 1, x + width / 32, y + 6 * width / 16,
 
                 width / 2, height / 2, graphics);
 

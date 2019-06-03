@@ -18,21 +18,21 @@ public class CoonectTheDots {
         // {120, 100}, {85, 130}, {50, 100}}
 
 
-        int [][] coordinates =  {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130}, {50, 100}};
-        ConnectIt(coordinates,graphics);
+        int[][] coordinates = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130}, {50, 100}};
+        ConnectIt(coordinates, graphics);
 
 
     }
 
-    public static void ConnectIt (int [][] points,Graphics graphics){
+    public static void ConnectIt(int[][] points, Graphics graphics) {
 
         //Connecting loop
-        for (int i = 0; i < points.length-1; i++) {
-            graphics.drawLine(points[i][0],points[i][1],points[1+i][0],points[1+i][1]);
+        for (int i = 0; i < points.length - 1; i++) {
+            graphics.drawLine(points[i][0], points[i][1], points[1 + i][0], points[1 + i][1]);
 
         }
         //Connect last and first dot
-        graphics.drawLine(points[points.length-1][0],points[points.length-1][1],points[0][0],points[0][1]);
+        graphics.drawLine(points[points.length - 1][0], points[points.length - 1][1], points[0][0], points[0][1]);
     }
 
 

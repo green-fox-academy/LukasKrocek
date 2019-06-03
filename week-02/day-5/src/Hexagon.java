@@ -38,8 +38,8 @@ public class Hexagon {
         if (count <= 0) {
             return;
         }
-        int[] x = {(int)leftX04, (int)rightX13, (int)x2, (int)rightX13, (int)leftX04, (int)x5};
-        int[] y = {(int)topY01, (int)topY01, (int)sidesY25, (int)bottomY34, (int)bottomY34, (int)sidesY25};
+        int[] x = {(int) leftX04, (int) rightX13, (int) x2, (int) rightX13, (int) leftX04, (int) x5};
+        int[] y = {(int) topY01, (int) topY01, (int) sidesY25, (int) bottomY34, (int) bottomY34, (int) sidesY25};
 
         graphics.drawPolygon(x, y, 6);
 

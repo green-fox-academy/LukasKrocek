@@ -23,7 +23,7 @@ public class BankAccount {
         this.goodGuy = goodGuy;
     }
 
-    public BankAccount (){
+    public BankAccount() {
 
     }
 
@@ -37,7 +37,7 @@ public class BankAccount {
 
 
     public String getDescription() {
-        return "name: " + getName() + ", balance: " + getBalance() + ", animal type: " + getAnimalType() +", King: " + isKing + ", Good Guy: "+ goodGuy;
+        return "name: " + getName() + ", balance: " + getBalance() + ", animal type: " + getAnimalType() + ", King: " + isKing + ", Good Guy: " + goodGuy;
     }
 
     public String getName() {

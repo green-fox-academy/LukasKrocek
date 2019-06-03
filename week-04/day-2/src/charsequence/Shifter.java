@@ -1,9 +1,10 @@
 package charsequence;
 
 public class Shifter implements CharSequence {
-String text;
-int numberOfChars;
-    public Shifter (String text, int numberOfChars){
+    String text;
+    int numberOfChars;
+
+    public Shifter(String text, int numberOfChars) {
         this.text = text;
         this.numberOfChars = numberOfChars;
     }
@@ -16,10 +17,10 @@ int numberOfChars;
     @Override
     public char charAt(int index) {
 
-        if (index>numberOfChars)
-            return text.charAt (index);
+        if (index > numberOfChars)
+            return text.charAt(index);
         else {
-            return text.charAt (numberOfChars-index);
+            return text.charAt(numberOfChars - index);
         }
     }
 

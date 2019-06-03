@@ -6,7 +6,7 @@ import java.util.List;
 public class Garden {
     private List<Plant> treesAndFlowers = new ArrayList<>();
 
-    public void add (Plant plant){
+    public void add(Plant plant) {
         treesAndFlowers.add(plant);
     }
 

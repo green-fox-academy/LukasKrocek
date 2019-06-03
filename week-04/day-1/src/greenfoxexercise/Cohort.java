@@ -17,7 +17,7 @@ Cohort(name): beside the given parameter, it sets students and mentors as empty 
     private List<Student> students;
     private List<Mentor> mentors;
 
-    Cohort (String name){
+    Cohort(String name) {
         this.name = name;
         students = new ArrayList<>();
         mentors = new ArrayList<>();

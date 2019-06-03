@@ -1,5 +1,7 @@
 package zoo;
+
 import interfaces.Flyable;
+
 public class Bird extends Animal implements Flyable {
 
     public Bird(String name) {

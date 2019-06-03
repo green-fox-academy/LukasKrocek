@@ -9,20 +9,20 @@
 </head>
 <body>
 <div class="content">
-<p th:text="${info}"></p>
-<form method="post" action="/login">
-<input name = "name" type="text" placeholder="Fox name..." required>
-    <input type="submit" value="Login to Existing Fox">
-</form>
+    <p th:text="${info}"></p>
+    <form method="post" action="/login">
+        <input name="name" type="text" placeholder="Fox name..." required>
+        <input type="submit" value="Login to Existing Fox">
+    </form>
 
-<form method="post" action="/CreateFox">
-    <input name = "name" type="text" placeholder="Fox name..." required>
-    <input type="submit" value="Create new Fox">
-</form>
+    <form method="post" action="/CreateFox">
+        <input name="name" type="text" placeholder="Fox name..." required>
+        <input type="submit" value="Create new Fox">
+    </form>
 
-</br>
-<h3 class="info">Created Foxes</h3>
-<span th:each="fox: ${allFoxes}" th:text="${fox.getName()}+', '"></span>
+    </br>
+    <h3 class="info">Created Foxes</h3>
+    <span th:each="fox: ${allFoxes}" th:text="${fox.getName()}+', '"></span>
 </div>
 </body>
 </html>

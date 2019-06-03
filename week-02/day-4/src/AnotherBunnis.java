@@ -8,12 +8,12 @@ public class AnotherBunnis {
         System.out.println(counter(10));
     }
 
-    public static int counter (int numberOfBunnies){
+    public static int counter(int numberOfBunnies) {
         int result;
-        if(numberOfBunnies<=0){
+        if (numberOfBunnies <= 0) {
             return 0;
 
-        } else if (numberOfBunnies%2 == 0) {
+        } else if (numberOfBunnies % 2 == 0) {
             result = 3 + counter(numberOfBunnies - 1);
         } else result = 2 + counter(numberOfBunnies - 1);
         return result;

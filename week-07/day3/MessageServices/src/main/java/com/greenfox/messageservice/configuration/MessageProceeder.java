@@ -15,7 +15,7 @@ Hint: If it is necessary don't forget to scan for components(services) in the re
     MessageConfiguration configuration = new MessageConfiguration();
 
     @Autowired
-    public MessageProceeder (@Qualifier("email") MessageService messageService){
+    public MessageProceeder(@Qualifier("email") MessageService messageService) {
         this.messageService = messageService;
     }
 
@@ -23,8 +23,8 @@ Hint: If it is necessary don't forget to scan for components(services) in the re
         this.messageService = messageService;
     }
 
-    public void processMessage (String message, String address){
-        if (configuration.getConfiguration (address).equals("email")){
+    public void processMessage(String message, String address) {
+        if (configuration.getConfiguration(address).equals("email")) {
             setMessageService(new MessageService() {
                 @Override
                 public void sendMessage() {

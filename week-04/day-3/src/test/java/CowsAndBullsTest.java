@@ -26,9 +26,9 @@ public class CowsAndBullsTest {
 
     @Test
     public void CowsAndBulls_Constructor_randomNumberInBounds() {
-        List <Integer> randomNumbers = new ArrayList<>();
+        List<Integer> randomNumbers = new ArrayList<>();
 
 
-        assertTrue(newGame.randomNumber<10000&&newGame.randomNumber>999);
+        assertTrue(newGame.randomNumber < 10000 && newGame.randomNumber > 999);
     }
 }

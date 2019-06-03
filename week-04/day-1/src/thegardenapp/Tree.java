@@ -8,7 +8,7 @@ public class Tree extends Plant {
     }
 
     @Override
-    public void watering (int amountOfWater){
-        currentWater+=amountOfWater*0.4;
+    public void watering(int amountOfWater) {
+        currentWater += amountOfWater * 0.4;
     }
 }

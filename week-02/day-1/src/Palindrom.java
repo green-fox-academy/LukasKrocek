@@ -23,7 +23,7 @@ public class Palindrom {
 
         //making palindrom
         String palindrom = "";
-        if (word.equals(new String(reverse))){
+        if (word.equals(new String(reverse))) {
             palindrom = word;
         } else {
             palindrom = word + new String(reverse);

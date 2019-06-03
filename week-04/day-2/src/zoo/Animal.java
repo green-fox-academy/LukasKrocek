@@ -12,13 +12,13 @@ it has getName() and breed() methods
     boolean hungry;
     boolean happy;
 
-    public Animal (String name){
+    public Animal(String name) {
         this.name = name;
     }
 
-    public String getName (){
+    public String getName() {
         return name;
     }
 
-    public abstract String breed ();
+    public abstract String breed();
 }

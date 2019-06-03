@@ -59,7 +59,7 @@ public abstract class CharacterOnMap extends PositionedImage {
         if (indexY > 0 && isItFloor(getIndexX(), getIndexY() - 1)) {//up
             indexY--;
             targetPosY = posY - Map.getFieldSize();
-           // posY -= Map.getFieldSize();
+            // posY -= Map.getFieldSize();
             move = true;
             direction = 0;
         } else {

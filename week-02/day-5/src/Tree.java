@@ -30,8 +30,8 @@ public class Tree {
         int vectorY = y2 - y1;
         int x3 = x2 + vectorX;
         int y3 = y2 + vectorY;
-        int leftX = (int)(x2 + Math.cos(30)*(vectorX+vectorY));
-        int leftY = (int)(y2 + Math.cos(30)*(vectorX+vectorY));
+        int leftX = (int) (x2 + Math.cos(30) * (vectorX + vectorY));
+        int leftY = (int) (y2 + Math.cos(30) * (vectorX + vectorY));
         //  int x4 = x2 + vectorY/5;
         // int y4 = y2 + vectorX/5;
 
@@ -41,7 +41,7 @@ public class Tree {
         //STRAIGHT LINE
         drawLine(count - 1, x2, y2, x3, y3, graphics);
         // LEFT LINE
-        drawLine(count - 1, x2, y2,leftX, leftY, graphics);
+        drawLine(count - 1, x2, y2, leftX, leftY, graphics);
         //RIGHT LINE
         //   drawLine(count - 1, x2, y2, x2 + 20, y2 - 10 * branchLength, branchLength-1, graphics);
 

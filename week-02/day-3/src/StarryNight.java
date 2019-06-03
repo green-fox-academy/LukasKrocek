@@ -11,17 +11,17 @@ public class StarryNight {
         //  - The stars can be small squares
         //  - The stars should have random positions on the canvas
         //  - The stars should have random color (some shade of grey)
-        graphics.fillRect(0,0,WIDTH,HEIGHT);
+        graphics.fillRect(0, 0, WIDTH, HEIGHT);
         for (int i = 0; i < 500; i++) {
-            drawSquare((int)(Math.random()*WIDTH),(int)(Math.random()*HEIGHT),(int)(Math.random()*3),graphics);
+            drawSquare((int) (Math.random() * WIDTH), (int) (Math.random() * HEIGHT), (int) (Math.random() * 3), graphics);
         }
 
 
     }
 
-    public static void drawSquare (int x, int y, int size, Graphics graphics){
+    public static void drawSquare(int x, int y, int size, Graphics graphics) {
         graphics.setColor(Color.WHITE);
-        graphics.drawRect(x,y,size,size);
+        graphics.drawRect(x, y, size, size);
     }
 
     // Don't touch the code below

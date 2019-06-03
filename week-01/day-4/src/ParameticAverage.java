@@ -16,14 +16,13 @@ public class ParameticAverage {
 
         for (int i = 0; i < numberOfNumbers; i++) {
 
-            System.out.println("Enter "+ (i+1) +". Number: ");
+            System.out.println("Enter " + (i + 1) + ". Number: ");
             b = sc.nextInt();
             sum += b;
         }
-        average= (float)sum/numberOfNumbers;
-        System.out.println("sum: "+ sum);
-        System.out.println("average:"+ average);
-
+        average = (float) sum / numberOfNumbers;
+        System.out.println("sum: " + sum);
+        System.out.println("average:" + average);
 
 
     }

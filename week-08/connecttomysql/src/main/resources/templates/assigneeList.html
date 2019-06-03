@@ -41,8 +41,10 @@
                 <td th:text="${assignee.getName()}"></td>
                 <td th:text="${assignee.getEmail()}"></td>
 
-                <td><a class="btn btn-danger" th:href="@{'/assignee/'+ ${assignee.getAssigneeID()} + '/delete'}">Delete</a></td>
-                <td><a class="btn btn-info" th:href="@{'/assignee/'+ ${assignee.getAssigneeID()} + '/edit'}">Edit</a></td>
+                <td><a class="btn btn-danger"
+                       th:href="@{'/assignee/'+ ${assignee.getAssigneeID()} + '/delete'}">Delete</a></td>
+                <td><a class="btn btn-info" th:href="@{'/assignee/'+ ${assignee.getAssigneeID()} + '/edit'}">Edit</a>
+                </td>
                 <td><a class="btn btn-info" th:href="@{'/'+ ${assignee.getAssigneeID()} + '/todo'}">Tasks</a></td>
 
             </div>

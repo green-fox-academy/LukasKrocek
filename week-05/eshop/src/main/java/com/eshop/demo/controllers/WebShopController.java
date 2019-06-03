@@ -33,7 +33,7 @@ public class WebShopController {
 
     @RequestMapping(value = "/average-stock")
     public String averageStock(Model model) {
-        model.addAttribute("double","Average stock is " + store.getAverageStock());
+        model.addAttribute("double", "Average stock is " + store.getAverageStock());
         return "averagestock";
     }
 

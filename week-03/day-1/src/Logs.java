@@ -11,8 +11,8 @@ public class Logs {
     // Write a function that returns an array with the unique IP adresses.
     // Write a function that returns the GET / POST request ratio.
     public static void main(String[] args) {
-        ArrayList <String> uniqueIPs = getUniqueIPs("log.txt");
-        for (String uniqueIP: uniqueIPs) {
+        ArrayList<String> uniqueIPs = getUniqueIPs("log.txt");
+        for (String uniqueIP : uniqueIPs) {
             System.out.println(uniqueIP);
         }
         System.out.println("Number of unique IPs : " + uniqueIPs.size());
@@ -26,7 +26,7 @@ public class Logs {
             Path logPath = Paths.get(path);
             IPadresses = Files.readAllLines(logPath);
             for (String IPadress : IPadresses) {
-                if (!uniqueIPadresses.contains(IPadress)){
+                if (!uniqueIPadresses.contains(IPadress)) {
                     uniqueIPadresses.add(IPadress);
 
 
@@ -35,7 +35,7 @@ public class Logs {
         } catch (IOException e) {
             System.out.println(path + " : not found");
         }
-return uniqueIPadresses;
+        return uniqueIPadresses;
     }
 }
 //.substring(26,37)
