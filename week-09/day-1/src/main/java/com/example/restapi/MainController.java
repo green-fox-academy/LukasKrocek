@@ -1,22 +1,9 @@
 package com.example.restapi;
 
 import com.example.restapi.models.*;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.sun.deploy.net.HttpResponse;
-import jdk.nashorn.internal.parser.JSONParser;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.lang.Error;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class MainController {
@@ -85,7 +72,5 @@ public class MainController {
             return error;
         }
     }
-
-
 }
 

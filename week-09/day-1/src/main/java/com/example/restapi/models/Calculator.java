@@ -7,7 +7,6 @@ public class Calculator {
 
     int result;
 
-
     public Calculator(String action, int [] numbers){
         if(action.equals("sum")){
             result = 0;
@@ -22,7 +21,4 @@ public class Calculator {
             }
         }
     }
-    //sum, multiply
-
-
 }

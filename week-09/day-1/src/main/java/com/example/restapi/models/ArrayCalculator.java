@@ -10,7 +10,7 @@ public class ArrayCalculator {
     public ArrayCalculator(int[] numbers) {
         result = numbers;
         for (int i = 0; i < numbers.length; i++) {
-            result[i] = numbers[i]*2;
+            result[i] = numbers[i] * 2;
         }
     }
 }

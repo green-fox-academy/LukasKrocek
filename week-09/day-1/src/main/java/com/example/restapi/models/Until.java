@@ -33,7 +33,3 @@ public class Until {
         }
     }
 }
-/*
- eg. /dountil/sum with {"until": 5} will respond {"result": 15}
-        eg. /dountil/factor with {"until": 5} will respond {"result": 120}
- */
