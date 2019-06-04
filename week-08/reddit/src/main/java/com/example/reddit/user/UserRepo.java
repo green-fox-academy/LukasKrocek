@@ -1,5 +1,6 @@
 package com.example.reddit.user;
 
+import com.example.reddit.user.models.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

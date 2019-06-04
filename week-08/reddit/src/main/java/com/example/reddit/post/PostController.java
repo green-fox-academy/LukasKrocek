@@ -1,5 +1,7 @@
 package com.example.reddit.post;
 
+import com.example.reddit.comment.Comment;
+import com.example.reddit.comment.CommentRepo;
 import com.example.reddit.user.UserRepo;
 import com.example.reddit.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +16,18 @@ public class PostController {
 
     private PostRepo posts;
     private UserRepo users;
+    private CommentRepo comments;
     private PostService postService;
     private UserService userService;
 
 
     @Autowired
-    public PostController(PostRepo posts, PostService postService, UserRepo users, UserService userService) {
+    public PostController(PostRepo posts, PostService postService, UserRepo users, UserService userService, CommentRepo comments) {
         this.posts = posts;
         this.postService = postService;
         this.users = users;
         this.userService = userService;
+        this.comments = comments;
     }
 
     @GetMapping(value = {"", "{numberOfPage}/show"})
@@ -42,6 +46,18 @@ public class PostController {
         model.addAttribute("loggedUser", userService.getLoggedUser(session));
         model.addAttribute("post", new Post());
         return "addPost";
+    }
+
+    @GetMapping("/getPost/{postID}")
+    public String getPost(Model model, @CookieValue(required = false) String session,@PathVariable Long postID) {
+        model.addAttribute("loggedUser", userService.getLoggedUser(session));
+        if(posts.findFirstByPostID(postID).isPresent()) {
+            model.addAttribute("post", posts.findFirstByPostID(postID).get());
+            model.addAttribute("comment", new Comment());
+            model.addAttribute("comments", comments.findAllByPostPostID(postID));
+            return "post";
+        }
+        return "redirect:/invalidPostID";
     }
 
     @PostMapping("/addPost")

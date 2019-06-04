@@ -1,6 +1,7 @@
 package com.example.reddit.user;
 
 import com.example.reddit.post.PostRepo;
+import com.example.reddit.user.models.User;
 import com.example.reddit.user.models.UserForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

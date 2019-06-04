@@ -1,5 +1,6 @@
-package com.example.reddit.user;
+package com.example.reddit.user.models;
 
+import com.example.reddit.comment.Comment;
 import com.example.reddit.post.Post;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     List<Post> posts;
+
+    @OneToMany(mappedBy = "user")
+    List<Comment> comments;
 
     public User() {
     }

@@ -1,6 +1,6 @@
 package com.example.reddit.post;
 
-import com.example.reddit.user.User;
+import com.example.reddit.comment.Comment;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -20,5 +20,4 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     List<Post> findAll();
 
     Optional<Post> findAllByUser_UserName(String userName);
-
 }

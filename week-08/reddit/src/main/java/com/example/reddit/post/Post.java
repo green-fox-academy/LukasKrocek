@@ -1,15 +1,14 @@
 package com.example.reddit.post;
 
 
-import com.example.reddit.user.User;
+import com.example.reddit.comment.Comment;
+import com.example.reddit.user.models.User;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Setter
@@ -26,6 +25,9 @@ public class Post {
 
     @ManyToOne
     User user;
+
+    @OneToMany(mappedBy = "post")
+    List<Comment> comments;
 
     public Post() {
         date = LocalDate.now().toString();

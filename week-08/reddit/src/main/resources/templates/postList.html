@@ -39,6 +39,12 @@
                     <input type="hidden" name="postID" th:value="${post.getPostID()}">
                     <input class="btn btn-primary" type="submit" value="edit">
                 </form>
+                <div class="post-comments">
+                    <small class="card-text">
+                        <a th:text="${post.comments.size()} + ' Comments'" th:href="'/posts/getPost/'+${post.getPostID()}"></a>
+                    </small>
+
+                </div>
             </div>
         </div>
     </div>
