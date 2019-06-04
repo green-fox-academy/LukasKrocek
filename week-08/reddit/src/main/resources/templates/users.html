@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+<div class="header" th:insert="header.html :: header">...</div>
+<div class="container">
+    <h2 th:text="'User name: '+ ${loggedUser}"></h2>
+    <p th:text="'Number of Posts: '+ ${userPosts.size()}"></p>
+    <p th:text="'Number of Comments: '+ ${userComments.size()}"></p>
+</div>
+</body>
+</html>

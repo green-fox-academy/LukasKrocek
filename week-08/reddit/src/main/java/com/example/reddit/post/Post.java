@@ -26,7 +26,7 @@ public class Post {
     @ManyToOne
     User user;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
     List<Comment> comments;
 
     public Post() {

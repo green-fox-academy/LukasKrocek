@@ -1,5 +1,6 @@
 package com.example.reddit.user;
 
+import com.example.reddit.comment.CommentRepo;
 import com.example.reddit.post.PostRepo;
 import com.example.reddit.user.models.User;
 import com.example.reddit.user.models.UserForm;
@@ -20,14 +21,16 @@ public class UserController {
 
     private UserRepo users;
     private PostRepo posts;
+    private CommentRepo comments;
     private UserService userService;
 
 
     @Autowired
-    public UserController(UserRepo users, PostRepo posts, UserService userService) {
+    public UserController(UserRepo users, PostRepo posts, UserService userService, CommentRepo comments) {
         this.users = users;
         this.posts = posts;
         this.userService = userService;
+        this.comments = comments;
     }
 
     @GetMapping("/login")
@@ -42,14 +45,14 @@ public class UserController {
         } else {
             model.addAttribute("form", new UserForm());
         }
-        model.addAttribute("loggedUser", userService.getLoggedUser(session));
+        model.addAttribute("loggedUser", userService.getLoggedUserUserName(session));
         model.addAttribute("current", "login");
         return "userForm";
     }
 
     @GetMapping("/registration")
     public String showRegistrationPage(Model model, @CookieValue(required = false) String session) {
-        model.addAttribute("loggedUser", userService.getLoggedUser(session));
+        model.addAttribute("loggedUser", userService.getLoggedUserUserName(session));
         model.addAttribute("form", new UserForm());
         model.addAttribute("current", "registration");
 
@@ -73,7 +76,7 @@ public class UserController {
         }
 
         model.addAttribute("form", new UserForm());
-        model.addAttribute("loggedUser", userService.getLoggedUser(session));
+        model.addAttribute("loggedUser", userService.getLoggedUserUserName(session));
         model.addAttribute("current", "login");
         model.addAttribute("errors", form.getErrors());
         return "userForm";
@@ -91,7 +94,7 @@ public class UserController {
             }
             form.addError("This user already exists");
         }
-        model.addAttribute("loggedUser", userService.getLoggedUser(session));
+        model.addAttribute("loggedUser", userService.getLoggedUserUserName(session));
         model.addAttribute("current", "registration");
         model.addAttribute("form", new UserForm());
         model.addAttribute("errors", form.getErrors());
@@ -108,17 +111,15 @@ public class UserController {
         return "redirect:/posts";
     }
 
-    @GetMapping("/accountInfo")
+    @GetMapping("/myProfile")
     public String accountInfo(@CookieValue(required = false) Cookie session, Model model) {
         if (session == null) {
-            return "redirect:/notLoggedIn";
+            return "redirect:/login";
         }
-        if (users.findFirstByCookie(session.getValue()).isPresent()) {
-            User user = users.findFirstByCookie(session.getValue()).get();
-            model.addAttribute("loggedUser", userService.getLoggedUser(session.getValue()));
-            model.addAttribute("userPosts", posts.findAllByUser_UserName(user.getUserName()));
-            return "accountInfo";
-        }
-        return "redirect:/invalidSessionCookie";
+        User user = users.findFirstByCookie(session.getValue()).get();
+        model.addAttribute("loggedUser", userService.getLoggedUserUserName(session.getValue()));
+        model.addAttribute("userPosts", user.getPosts());
+        model.addAttribute("userComments", user.getComments());
+        return "users";
     }
 }

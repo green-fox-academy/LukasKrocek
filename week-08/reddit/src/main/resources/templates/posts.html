@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="header" th:insert="newHeader.html :: header">...</div>
+<div class="header" th:insert="header.html :: header">...</div>
 <div class="container">
     <div th:each="post:${posts}" class="card text-center">
         <div class="card-body row">
@@ -39,11 +39,14 @@
                     <input type="hidden" name="postID" th:value="${post.getPostID()}">
                     <input class="btn btn-primary" type="submit" value="edit">
                 </form>
+                <form th:if="${post.user.getUserName()==loggedUser}" th:method="delete">
+                    <input type="hidden" name="postID" th:value="${post.getPostID()}">
+                    <input class="btn btn-danger" type="submit" value="delete">
+                </form>
                 <div class="post-comments">
                     <small class="card-text">
-                        <a th:text="${post.comments.size()} + ' Comments'" th:href="'/posts/getPost/'+${post.getPostID()}"></a>
+                        <a th:text="${post.comments.size()} + ' Comments'" th:href="'/posts/'+${post.getPostID()}+'/comments'"></a>
                     </small>
-
                 </div>
             </div>
         </div>

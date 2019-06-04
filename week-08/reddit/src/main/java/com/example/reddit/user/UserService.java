@@ -20,7 +20,7 @@ public class UserService {
         this.users = users;
     }
 
-    public String getLoggedUser(String session) {
+    public String getLoggedUserUserName(String session) {
         if (session == null) {
             return "none";
         } else if (users.findFirstByCookie(session).isPresent()) {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+<div class="header" th:insert="header.html :: header">...</div>
+<div class="container">
+    <h2 th:text="${post.getTitle().toUpperCase()}+': Comments'"></h2>
+    <div th:each="comment:${comments}" class="card text-center">
+        <div class="card-body row">
+            <div class="col">
+                <div class="post-header">
+                    <small class="card-text" th:text="'Added ' + ${post.date} + '. By: '"></small>
+                    <span class="card-text" th:text="${post.user.userName}"></span>
+                </div>
+                <div class="post-content">
+                    <p class="card-text" th:text="${comment.content}"></p>
+                    <form th:if="${comment.user.getUserName()==loggedUser}"
+                          th:action="'comments/'+${comment.getId()}+'/delete'" th:method="post">
+                        <input class="btn btn-danger" type="submit" value="delete">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form th:if="${loggedUser}!='none'" method="post" th:object="${newComment}">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">New Comment</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" th:field="*{content}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>
