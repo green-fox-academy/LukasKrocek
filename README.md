@@ -4,3 +4,7 @@
 
 [lesson-repository](https://github.com/LukasKrocek/git-lesson-repository)
 
+[prg-ferrilata-syllabus](https://github.com/LukasKrocek/p2p-chat)
+
+
+
