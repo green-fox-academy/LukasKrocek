@@ -4,3 +4,7 @@
 
 [lesson-repository](https://github.com/LukasKrocek/git-lesson-repository)
 
+[P2P chat](https://github.com/LukasKrocek/p2p-chat)
+
+
+
