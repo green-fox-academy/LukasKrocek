@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
 from .models import Todo
 from .forms import TodoForm, NewTodoForm
+import datetime
 
 
 def index(request):
     todo_list = Todo.objects.order_by('id')
     newform = NewTodoForm()
-    context = {'todo_list': todo_list, 'form': newform}
+    mydate = datetime.datetime.now()
+    context = {'todo_list': todo_list, 'form': newform, 'mydate': mydate}
     return render(request, 'todo/index.html', context)
 
 
@@ -15,7 +17,7 @@ def index(request):
 def addTodo(request):
     new_todoform = NewTodoForm(request.POST)
     if new_todoform.is_valid():
-        new_todo = new_todoform.save()
+        Todo = new_todoform.save()
     return redirect('index')
 
 
